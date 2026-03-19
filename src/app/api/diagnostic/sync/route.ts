@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { execSync } from 'child_process';
 import prisma from '@/lib/db/prisma';
 
+export const runtime = 'nodejs';
+
 export async function GET() {
   console.log('🔄 [DIAGNOSTIC] Starting remote schema sync...');
   const results: Record<string, unknown>[] = [];
@@ -23,7 +25,7 @@ export async function GET() {
     }
 
     // 3. Verify tables
-    const tables = (await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`) as any[];
+    const tables = (await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`) as unknown[];
     results.push({ step: 'verify-tables', status: 'success', tables });
 
     return NextResponse.json({ message: 'Synchronization complete', results });
