@@ -1,0 +1,501 @@
+username,cluster,total_stars,top_language
+torvalds,0,234350,C
+karpathy,1,386593,C
+yyx990803,0,16365,Rust
+gaearon,2,40685,OCaml
+peng-zhihui,0,84414,C
+ruanyf,2,200986,Shell
+sindresorhus,3,622180,C
+bradtraversy,2,150359,Svelte
+JakeWharton,0,121093,C
+rafaballerini,1,20923,Jupyter Notebook
+hiteshchoudhary,0,47841,Go
+tj,0,121620,C
+IDouble,3,4282,C
+ThePrimeagen,0,40531,C
+geohot,0,23291,C
+addyosmani,3,56244,Rich Text Format
+getify,3,216172,JavaScript
+steipete,3,54729,Shell
+krishnaik06,1,40251,Jupyter Notebook
+CodeWithHarry,0,20468,C
+kamranahmedse,3,447138,Shell
+filipedeschamps,2,14524,Shell
+antfu,3,45252,Markdown
+michaelliao,3,21842,C
+midudev,3,52666,Svelte
+llSourcell,1,34809,Jupyter Notebook
+kunal-kushwaha,1,28858,Jupyter Notebook
+adrianhajdin,3,108348,JavaScript
+rasbt,1,157810,Jupyter Notebook
+JohnMwendwa,3,3344,Markdown
+dmalan,0,722,C
+taylorotwell,0,1089,Shell
+wesbos,2,57023,C
+mouredev,3,111494,Java
+kentcdodds,3,28798,Shell
+ry,0,5648,Rust
+diego3g,3,9430,Rust
+iamshaunjp,2,21062,PHP
+WebDevSimplified,2,16554,JavaScript
+paulirish,2,17984,Shell
+tiangolo,3,15587,Shell
+iam-veeramalla,0,69668,HCL
+kennethreitz,3,21675,Jupyter Notebook
+StephenGrider,2,30559,Elixir
+benawad,3,26798,Svelte
+gamemann,3,2714,C
+buckyroberts,2,8466,Java
+elyxdev,1,138,PHP
+hadley,0,14243,C
+geerlingguy,3,33824,Groovy
+antirez,0,59710,C
+jwasham,0,352632,C
+gvanrossum,0,2519,C
+ProgrammingHero1,2,210,JavaScript
+techwithtim,1,6783,Jupyter Notebook
+daimajia,1,46991,Java
+BEPb,1,5477,C
+mrdoob,2,128720,JavaScript
+sdras,3,57223,Shell
+mojombo,0,14099,C
+hkirat,2,10880,Rust
+mitsuhiko,0,15929,C
+kelseyhightower,0,138057,Open Policy Agent
+mdo,2,21574,SCSS
+SebLague,1,34439,GLSL
+donnemartin,3,438295,Hack
+keijiro,0,12234,C
+mli,1,41874,Matlab
+mbostock,2,4925,JavaScript
+tpope,0,107832,VimL
+codediodeio,2,6846,Jupyter Notebook
+jadijadi,0,9287,Erlang
+defunkt,0,37167,C
+chiphuyen,1,54370,Jupyter Notebook
+douglascrockford,2,12569,C
+liyupi,3,56488,Java
+MorvanZhou,1,41281,Jupyter Notebook
+cloudwu,0,26626,C
+brunosimon,2,15537,CSS
+JacksonTian,2,24319,JavaScript
+kenjinote,0,637,C
+xiaolai,0,22434,C
+lucast1574,1,201,Jupyter Notebook
+mitchellh,0,44010,C
+lllyasviel,1,164990,Python
+Asabeneh,3,140650,Jupyter Notebook
+AlexTheAnalyst,2,5977,Jupyter Notebook
+john-smilga,2,20030,HTML
+phodal,3,65594,Rich Text Format
+developedbyed,2,3368,Lua
+angelabauer,1,1148,Jupyter Notebook
+Rich-Harris,2,19957,Svelte
+loiane,3,10841,SCSS
+shiffman,1,3264,Processing
+standardgalactic,1,419,TeX
+jakevdp,1,55288,C
+jeresig,2,6257,Java
+mattt,0,18203,C
+ggerganov,0,25812,C
+chrisbanes,0,35744,C
+sandhikagalih,2,5897,Visual Basic 6.0
+esin,0,913,C
+fchollet,1,36422,Jupyter Notebook
+trekhleb,3,255540,MATLAB
+AUTOMATIC1111,0,167984,C
+t3dotgg,3,11377,Elixir
+vczh,0,3080,TypeScript
+halfrost,0,50440,C
+JeffreyWay,1,3571,Vim script
+justjavac,3,177360,MoonBit
+ageron,1,72377,Rust
+jackfrued,1,195291,Jupyter Notebook
+peter-kimanzi,2,1738,Shell
+Trinea,2,40633,Java
+codingforentrepreneurs,3,9670,HCL
+atilsamancioglu,1,4006,Jupyter Notebook
+maykbrito,3,4423,Svelte
+jlord,2,13837,Rich Text Format
+rauchg,2,19773,Shell
+spf13,0,105712,VimL
+wesm,1,30108,Jupyter Notebook
+LeaVerou,2,26759,SCSS
+josevalim,2,1342,Elixir
+isaacs,3,32798,JavaScript
+Ovilia,2,9063,JavaScript
+Charles-Chrismann,2,310,TypeScript
+onevcat,3,35079,SCSS
+OracleBrain,2,833,Java
+DIYgod,2,78437,C
+gopinav,2,6277,JavaScript
+leerob,3,20029,Rust
+florinpop17,2,95878,JavaScript
+kubowania,2,5170,Jupyter Notebook
+ForrestKnight,2,26750,Rust
+johnpapa,3,32792,Svelte
+mosh-hamedani,2,5025,Java
+idimetrix,3,499,JavaScript
+in28minutes,3,34378,Java
+shadcn,2,2348,JavaScript
+astaxie,2,55804,Go
+Klerith,2,2580,Java
+lydiahallie,3,68638,Go
+acdlite,2,35040,JavaScript
+eust-w,0,526,Go
+matheusbattisti,2,4354,Java
+feross,3,27683,C
+RubyLouvre,2,14684,Objective-C
+taniarascia,3,20965,VimL
+cassidoo,3,15484,Python
+anuraghazra,3,82641,Rust
+ChrisTitusTech,0,67486,C
+sorrycc,2,42013,Rust
+danielmiessler,0,125682,VimL
+goodfeli,1,8407,TeX
+unclebob,0,5602,C
+mustafacagri,3,883,HTML
+unknwon,0,59159,Go
+tannerlinsley,3,2883,JavaScript
+Kwynto,0,1390,Go
+davidfowl,1,20203,Python
+schacon,0,7608,C
+evanw,0,63347,C
+brianyu28,1,371,Rust
+Code-Bullet,1,4857,Python
+yinwang0,1,2087,Java
+fengdu78,1,89991,Jupyter Notebook
+bailicangdu,3,86990,JavaScript
+acenelio,2,2889,TypeScript
+tomnomnom,2,37391,Java
+jessfraz,0,22508,C
+george0st,0,2642,Java
+CoreyMSchafer,1,11936,Jupyter Notebook
+PanJiaChen,2,118869,Shell
+akitaonrails,0,3412,C
+btholt,2,22545,SCSS
+tjdevries,0,6869,C
+fabpot,0,2373,C
+jashkenas,2,78589,Java
+jonhoo,0,15306,Rust
+abuanwar072,3,31911,Objective-C
+mattn,0,30331,C
+egoist,3,39149,Rust
+knadh,0,39016,C
+vbuterin,0,3281,TeX
+simonw,3,38309,Rust
+draveness,0,16177,C
+adamwathan,2,1575,JavaScript
+gitdagray,2,10216,Python
+bradfitz,0,7344,Go
+philipplackner,2,3211,JavaScript
+yangshun,3,187787,Shell
+soumith,0,18966,C
+nicknochnack,1,7757,Jupyter Notebook
+hongyangAndroid,2,43808,Java
+rakyll,0,32639,Go
+angusshire,0,2119,Python
+developit,3,68414,JavaScript
+rexim,0,2757,C
+miguelgrinberg,3,41161,Vim script
+mathiasbynens,2,47894,JavaScript
+TheCherno,0,18200,C
+kevin-powell,2,4359,Nunjucks
+jrohitofficial,2,766,Rust
+haoel,0,31873,Shell
+hakimel,2,96781,JavaScript
+BYVoid,0,11467,C
+ashishps1,1,88490,Jupyter Notebook
+skydoves,3,64146,Java
+JohnHammond,0,10039,C
+YunaiV,0,60303,C
+tqchen,1,3338,HTML
+htr-tech,1,24937,JavaScript
+bojone,0,20946,C
+shanselman,0,4280,PowerShell
+bedimcode,2,11594,SCSS
+laruence,0,10689,C
+ibireme,0,41833,C
+easychen,0,76877,C
+521xueweihan,0,194218,C
+LukeSmithxyz,0,19378,C
+robpike,0,4260,Go
+BurntSushi,0,104748,C
+agentzh,0,914,C
+mnielsen,1,19162,TeX
+Elfocrash,3,9281,Java
+samyk,0,16975,C
+KalleHallden,1,4417,Java
+bvaughn,3,73447,HTML
+topjohnwu,0,68701,C
+craftzdog,3,14863,Java
+mqyqingfeng,2,33314,JavaScript
+iampawan,3,37173,Java
+jakearchibald,2,20914,HTML
+mrdbourke,1,38844,Jupyter Notebook
+jhaddix,0,8692,C
+zenorocha,2,53982,Shell
+QianMo,2,35608,GLSL
+XiaomingX,3,6841,Rust
+ChristianLempa,0,16485,PowerShell
+shradha-khapra,1,1921,Handlebars
+elder-plinius,1,37080,Java
+lilianweng,1,5123,SCSS
+muan,2,12140,Go
+necolas,2,87910,Shell
+fouber,2,27660,Java
+campusx-official,1,7226,Jupyter Notebook
+offensive-security,0,18011,C
+jart,0,34994,C
+LaurieWired,0,15671,C
+amueller,1,22690,TeX
+ashishpatel26,1,73183,Jupyter Notebook
+PatrickAlphaC,1,3553,Rust
+shiftkey,2,8160,PowerShell
+noob-hackers,1,20138,PHP
+rsc,0,8644,Go
+chriscoyier,2,1618,JavaScript
+mcollina,2,15960,HTML
+munificent,0,23152,C
+frontend-joe,2,4302,Svelte
+chenshuo,0,21491,C
+Snailclimb,1,165061,Java
+AllenDowney,1,25251,C
+nishant-Tiwari24,1,14473,Rust
+ErickWendel,3,10657,PLpgSQL
+engindemirog,1,5794,Java
+miloyip,0,31683,C
+shahradelahi,3,4418,Svelte
+nzakas,2,6919,JavaScript
+Pierian-Data,1,31064,Scala
+f,3,166198,C
+meliksahyorulmazlar,1,499,Jupyter Notebook
+aneagoie,2,7952,SCSS
+jvns,0,12306,C
+NeuralNine,1,3948,Jupyter Notebook
+romannurik,2,18433,SCSS
+bchiang7,2,11114,SCSS
+alex,0,43619,Rust
+sofish,2,12966,JavaScript
+simplesteph,0,2979,Java
+sophiebits,1,879,JavaScript
+mgechev,3,39207,Shell
+benbalter,0,6805,Shell
+wycats,2,3821,Rust
+romainguy,3,10200,JavaScript
+Sentdex,1,11270,Jupyter Notebook
+0vm,1,701,JavaScript
+jaredpalmer,3,78211,Shell
+wizardforcel,1,8238,C
+swisskyrepo,1,86294,Jupyter Notebook
+typicode,3,159087,JavaScript
+folke,3,81792,Shell
+andrewrk,0,11887,C
+pjreddie,0,27795,C
+abhishekkrthakur,1,16129,Dockerfile
+ai,2,52465,Shell
+joshlong,0,2163,Java
+CelaDaniel,3,683,JavaScript
+s0md3v,0,102696,Shell
+ryanflorence,2,2151,JavaScript
+arthurspk,3,25592,JavaScript
+bubbliiiing,1,25953,Python
+CoderMJLee,0,26337,C
+yihui,2,10665,SCSS
+hmaverickadams,1,11393,JavaScript
+dennybritz,1,41033,Svelte
+colah,1,1665,TeX
+alyssaxuu,3,51630,JavaScript
+Jack-Cherish,1,49678,Ren'Py
+toddmotto,2,18422,HTML
+PKUFlyingPig,0,83132,C
+ardalis,2,36536,CSS
+ustbhuangyi,2,30652,JavaScript
+djvelimir,0,511,C
+wasabeef,3,102874,Rust
+tenderlove,0,5419,C
+hwchase17,1,9079,Jupyter Notebook
+ElzeroWebSchool,2,3176,CSS
+Connor9994,0,524,C
+jordwalke,0,3401,C
+jcjohnson,1,35432,Jupyter Notebook
+haileys,0,3787,C
+sokra,2,4063,JavaScript
+lucasmontano,0,2102,Java
+mohammadhasanii,3,317,Handlebars
+macrozheng,3,132122,Dart
+sebmarkbage,2,2445,JavaScript
+ishandutta2007,0,346,C
+K1rsN7,3,876,Mustache
+twostraws,3,39944,GLSL
+dataprofessor,1,3730,Jupyter Notebook
+algorithmzuo,0,7250,Java
+iamapuneet,3,305,Java
+wintercn,2,2194,JavaScript
+otaviossousa,1,198,C
+carpedm20,1,40101,Jupyter Notebook
+felangel,3,18194,TypeScript
+dtolnay,0,61803,Rust
+vjanz,1,366,Markdown
+i5ting,3,12616,Rust
+DIMFLIX,1,615,Jupyter Notebook
+OfficialCodeVoyage,2,282,CSS
+evilsocket,0,41506,C
+UberGuidoZ,0,23506,C
+vinta,1,294037,HCL
+dyc87112,2,25950,Java
+youngyangyang04,0,76360,C
+AntonioErdeljac,2,1218,CSS
+OneLoneCoder,0,9580,C
+rwieruch,3,6115,JavaScript
+sudheerj,3,83314,Java
+FiloSottile,0,93755,Shell
+LondheShubham153,1,4388,Groovy
+nunomaduro,3,19889,PHP
+jaywcjlove,3,176458,Rust
+igrigorik,0,26407,C
+H-K-R,1,885,MATLAB
+teteusAraujo,2,1487,Java
+jamiebuilds,3,89344,Rust
+MisterBooo,1,80963,Java
+GoesToEleven,2,16043,PLpgSQL
+fatih,0,39904,Vim script
+luizomf,2,5016,Shell
+audreyt,0,5969,C
+CleverProgrammer,1,1992,Jupyter Notebook
+lepture,2,13587,Vim script
+ityouknow,3,47939,Java
+ahmetb,0,43912,HCL
+Colt,2,4104,TypeScript
+jamesmontemagno,2,3110,Jupyter Notebook
+fat,2,6618,JavaScript
+brendangregg,0,34361,C
+eddiejaoude,2,1170,Svelte
+machadop1407,2,3930,Python
+kamilmysliwiec,3,634,TypeScript
+Fndroid,0,566,PowerShell
+nahamsec,0,18505,Shell
+justmarkham,1,14403,Handlebars
+ChenYilong,3,30161,Objective-C
+clementmihailescu,2,3618,Go
+junegunn,0,147368,VimL
+wcandillon,2,11084,HTML
+chokcoco,2,38752,HTML
+koush,0,26153,C
+amitshekhariitbhu,3,65342,Java
+seehiong,3,1268,Jupyter Notebook
+liaohuqiu,0,19543,Java
+fengmk2,2,15,HTML
+Fernanda-Kipper,3,3294,C
+skyzh,0,12403,C
+daneden,2,5196,Processing
+drkostas,1,1432,Jupyter Notebook
+cusspvz,3,752,Go
+yonggekkk,1,37607,JavaScript
+cyanharlow,2,11032,CSS
+mschwarzmueller,2,6422,Python
+stefanprodan,0,25711,Makefile
+tw93,3,99464,Rust
+rustdesk,0,120662,PowerShell
+BilgisayarKavramlari,1,973,Jupyter Notebook
+jhcloos,0,1135,C
+tiann,0,29929,C
+davidbombal,1,6002,JavaScript
+springframeworkguru,0,1007,Java
+rovo89,0,17674,C
+nihui,0,15513,C
+jfullstackdev,3,569,Java
+mercyblitz,2,11580,Java
+safak,2,20172,HTML
+cami-la,3,8720,Java
+Rafaelmdcarneiro,0,201,Rust
+ethanflower1903,0,233,Java
+dai-shi,3,16898,JavaScript
+AsmrProg-YT,2,5438,JavaScript
+Jarred-Sumner,2,1000,Zig
+drakeet,1,6651,Java
+DeborahK,2,6061,JavaScript
+bigtreetech,0,10851,C
+ljharb,3,10835,JavaScript
+rengwuxian,0,11776,Java
+CarGuo,3,53786,Java
+shuding,2,33860,JavaScript
+fazt,3,2024,Handlebars
+LaravelDaily,2,9852,PHP
+sharkdp,3,163678,Rust
+Yangqing,0,596,C
+remy,2,34714,jq
+Germey,1,2283,Python
+mbahomaid,1,362,JavaScript
+joshwcomeau,3,14432,TypeScript
+Huxpro,2,9213,HTML
+Nutlope,1,61454,JavaScript
+zcbenz,0,371,JavaScript
+felipefialho,3,20126,Python
+rsms,0,38993,C
+lemire,0,5057,C
+ryanb,0,25026,C
+rougier,1,45206,C
+historicalsource,0,5614,C
+mxcl,0,21410,C
+satya-nutella,2,472,Shell
+dabit3,3,9630,Rust
+emmabostian,2,24564,CSS
+liuyubobobo,1,13096,Jupyter Notebook
+emilk,0,34331,C
+motanelson,0,42,C
+giswqs,1,1682,Typst
+sebastianbergmann,1,152734,PHP
+graydon,0,1739,C
+rrousselGit,3,19421,Dart
+Shubhamsaboo,1,102998,HTML
+itsKayWat,1,346,TeX
+JCSIVO,1,272,Java
+U7P4L-IN,2,1281,Shell
+bagder,0,7095,C
+amusi,1,67066,C
+ip681,1,269,Jupyter Notebook
+JohnSundell,3,36014,Objective-C
+hehonghui,1,57360,HTML
+Shehab-Hegab,1,174,Jupyter Notebook
+rdpeng,0,3471,C
+jtleek,2,11367,HTML
+mjackson,2,7627,Vim script
+appleboy,3,24987,Go
+loveBabbar,2,4144,JavaScript
+shengxinjing,2,33202,Shell
+willianjusten,2,12881,Shell
+singwhatiwanna,0,8962,Objective-C
+learnwithsumit,2,2700,SCSS
+arpitbbhayani,0,12287,C
+afc163,2,1997,HTML
+steveklabnik,2,4217,Rust
+swyxio,1,20187,Svelte
+mattdesl,0,21062,C
+trinhminhtriet,0,842,Rust
+LuNiZz,2,4864,Dockerfile
+overtrue,3,29790,Rust
+dalindev,1,1101,Jupyter Notebook
+jph00,1,837,Vim script
+omariosouto,2,771,Shell
+jdah,0,12741,C
+phith0n,0,11345,C
+tangqiaoboy,1,7214,Objective-C
+TommyZihao,1,13723,Jupyter Notebook
+byt3bl33d3r,1,29175,C
+mckaywrigley,1,49921,TypeScript
+yuanming-hu,1,4620,CoffeeScript
+Jinjiang,2,1953,Vue
+apna-college,2,2938,Java
+Nakshatra05,2,120,Rust
+yetone,0,19457,C
+jeffheaton,1,10334,C
+nholuongut,0,18,Go
+oldratlee,3,17915,Jupyter Notebook
+SuperSimpleDev,2,4271,JavaScript
+crnacura,2,905,JavaScript
+dennisivy,2,6218,Python
+jskeet,2,1065,HTML
+skywind3000,0,63633,C
+mxstbr,3,5284,SCSS
+GrahamCampbell,1,6182,PHP

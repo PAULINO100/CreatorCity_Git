@@ -1,0 +1,157 @@
+// This is your Prisma schema file.
+// Local: SQLite (handled by scripts/setup-local-db.sh)
+// Prod: PostgreSQL (Vercel)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  github_id     String?   @unique
+  name          String?
+  avatar_url    String?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  
+  // Scoring
+  dis_score     Int       @default(0)
+  cis_score     Int       @default(0)
+  trust_score   Float     @default(0.0)
+
+  // Relations
+  building      Building?
+  city_credit   CityCredit?
+  votes_cast    PeerVote[] @relation("VotesCast")
+  votes_received PeerVote[] @relation("VotesReceived")
+  badges        UserBadge[]
+
+  accounts      Account[]
+  sessions      Session[]
+
+  @@index([name])
+  @@index([github_id])
+}
+
+model Building {
+  id                String   @id @default(cuid())
+  user_id           String   @unique
+  user              User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  structure_type    String
+  height            Int      @default(1)
+  district          String
+  position_x        Int
+  position_y        Int
+  last_activity_at  DateTime @default(now())
+
+  @@index([district])
+  @@index([position_x, position_y])
+}
+
+model PeerVote {
+  id              String   @id @default(cuid())
+  voter_id        String
+  target_user_id  String
+  
+  voter           User     @relation("VotesCast", fields: [voter_id], references: [id], onDelete: Cascade)
+  target_user     User     @relation("VotesReceived", fields: [target_user_id], references: [id], onDelete: Cascade)
+  
+  vote_value      Float    @default(0.0) // 0.0 - 1.0 (Downvote to Upvote)
+  weight          Float    @default(1.0)
+  decay_factor    Float    @default(1.0)
+  
+  created_at      DateTime @default(now())
+  expires_at      DateTime?
+  is_reciprocal   Boolean  @default(false)
+  flagged         Boolean  @default(false)
+
+  @@index([target_user_id])
+  @@index([voter_id, target_user_id])
+  @@index([created_at])
+}
+
+model CityCredit {
+  id                  String   @id @default(cuid())
+  user_id             String   @unique
+  user                User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  balance             Int      @default(0)
+  last_claim_at       DateTime?
+  reputation_points   Int      @default(0)
+  transaction_history String   @default("[]") // Store as JSON string for SQLite compatibility
+  
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
+
+  @@index([user_id])
+}
+
+// NextAuth Models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+model Badge {
+  id                String      @id @default(cuid())
+  name              String
+  description       String
+  icon_svg          String      // SVG path or code
+  requirement_type  String      // 'score', 'commit', 'login_days', 'platform_count', etc.
+  requirement_value Int
+  reward_cc         Int         @default(0)
+  rarity            String      @default("common") // common, rare, epic, legendary
+  
+  users             UserBadge[]
+  created_at        DateTime    @default(now())
+}
+
+model UserBadge {
+  id          String   @id @default(cuid())
+  user_id     String
+  badge_id    String
+  unlocked_at DateTime @default(now())
+  claimed     Boolean  @default(false)
+
+  user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  badge       Badge    @relation(fields: [badge_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, badge_id])
+}
