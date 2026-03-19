@@ -23,12 +23,17 @@ if (projectMode === 'production') {
     console.log(`ℹ️ [INFO] Running in ${projectMode} mode.`);
 }
 
-// 2. Prisma Generate
+// 2. Prisma Setup
 try {
     console.log("⚙️ [PRISMA] Generating client...");
     execSync('npx prisma generate', { stdio: 'inherit' });
+
+    if (projectMode === 'production') {
+        console.log("🔗 [PRISMA] Synchronizing Production Database Schema...");
+        execSync('npx prisma migrate deploy', { stdio: 'inherit' });
+    }
 } catch (error) {
-    console.error("❌ [ERROR] Prisma generation failed:", error.message);
+    console.error("❌ [ERROR] Prisma setup failed:", error.message);
     process.exit(1);
 }
 
