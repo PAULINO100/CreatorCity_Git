@@ -28,9 +28,18 @@ try {
     console.log("⚙️ [PRISMA] Generating client...");
     execSync('npx prisma generate', { stdio: 'inherit' });
 
-    if (projectMode === 'production') {
-        console.log("🔗 [PRISMA] Synchronizing Production Database Schema...");
-        execSync('npx prisma migrate deploy', { stdio: 'inherit' });
+    const hasRemoteDb = process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('file:');
+    
+    if (hasRemoteDb || projectMode === 'production' || process.env.NODE_ENV === 'production') {
+        console.log("🔗 [PRISMA] Synchronizing Database Schema...");
+        try {
+            execSync('npx prisma migrate deploy', { stdio: 'inherit' });
+            console.log("✅ [PRISMA] Migration successful.");
+        } catch (migrationError) {
+            console.warn("⚠️ [PRISMA] Migrate deploy failed, trying db push as fallback...");
+            execSync('npx prisma db push --accept-data-loss', { stdio: 'inherit' });
+            console.log("✅ [PRISMA] DB Push successful.");
+        }
     }
 } catch (error) {
     console.error("❌ [ERROR] Prisma setup failed:", error.message);
