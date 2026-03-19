@@ -34,8 +34,9 @@ export async function GET() {
     }
 
     return NextResponse.json({ message: 'Seed successful', created: mockCitizens.length });
-  } catch (error: any) {
-    console.error('❌ [DIAGNOSTIC] Seed failed:', error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    console.error('❌ [DIAGNOSTIC] Seed failed:', errorMessage);
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
