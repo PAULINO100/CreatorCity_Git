@@ -4,7 +4,7 @@ import prisma from '@/lib/db/prisma';
 
 export async function GET() {
   console.log('🔄 [DIAGNOSTIC] Starting remote schema sync...');
-  const results: any[] = [];
+  const results: Record<string, unknown>[] = [];
   
   try {
     // 1. Try Migrate Deploy
@@ -12,9 +12,10 @@ export async function GET() {
       console.log('🔄 [DIAGNOSTIC] Step 1: Running prisma migrate deploy...');
       const output = execSync('npx prisma migrate deploy', { encoding: 'utf-8' });
       results.push({ step: 'migrate-deploy', status: 'success', output });
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : String(err);
       console.warn('⚠️ [DIAGNOSTIC] Migrate deploy failed, trying db push...');
-      results.push({ step: 'migrate-deploy', status: 'failed', error: err.message });
+      results.push({ step: 'migrate-deploy', status: 'failed', error: errorMessage });
       
       // 2. Try DB Push as fallback
       const output = execSync('npx prisma db push --accept-data-loss', { encoding: 'utf-8' });
@@ -22,15 +23,16 @@ export async function GET() {
     }
 
     // 3. Verify tables
-    const tables = await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`;
+    const tables = (await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`) as any[];
     results.push({ step: 'verify-tables', status: 'success', tables });
 
     return NextResponse.json({ message: 'Synchronization complete', results });
-  } catch (error: any) {
-    console.error('❌ [DIAGNOSTIC] Sync failed:', error.message);
+  } catch (error: unknown) {
+    const finalError = error instanceof Error ? error.message : String(error);
+    console.error('❌ [DIAGNOSTIC] Sync failed:', finalError);
     return NextResponse.json({ 
       error: 'Synchronization Failure', 
-      details: error.message,
+      details: finalError,
       results 
     }, { status: 500 });
   }
