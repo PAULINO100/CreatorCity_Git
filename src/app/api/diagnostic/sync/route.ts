@@ -4,15 +4,14 @@ import prisma from '@/lib/db/prisma';
 export const runtime = 'nodejs';
 
 export async function GET() {
-  console.log('🔄 [DIAGNOSTIC] Starting remote schema sync (Manual SQL)...');
+  console.log('🔄 [DIAGNOSTIC] Starting remote schema sync (Manual SQL Sequential)...');
   const results: Record<string, unknown>[] = [];
   
   try {
-    // 1. Manual SQL Schema Creation
+    // 1. Manual SQL Schema Creation (Sequential to avoid prepared statement issues)
     console.log('🔄 [DIAGNOSTIC] Step 1: Running manual SQL for ALL tables...');
-    await prisma.$executeRawUnsafe(`
-      -- 1. User
-      CREATE TABLE IF NOT EXISTS "User" (
+    const commands = [
+      `CREATE TABLE IF NOT EXISTS "User" (
         "id" TEXT PRIMARY KEY,
         "email" TEXT,
         "github_id" TEXT,
@@ -23,12 +22,10 @@ export async function GET() {
         "trust_score" DOUBLE PRECISION DEFAULT 0.0,
         "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         "updated_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
-      CREATE UNIQUE INDEX IF NOT EXISTS "User_email_key" ON "User"("email");
-      CREATE UNIQUE INDEX IF NOT EXISTS "User_github_id_key" ON "User"("github_id");
-
-      -- 2. Building
-      CREATE TABLE IF NOT EXISTS "Building" (
+      )`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS "User_email_key" ON "User"("email")`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS "User_github_id_key" ON "User"("github_id")`,
+      `CREATE TABLE IF NOT EXISTS "Building" (
         "id" TEXT PRIMARY KEY,
         "user_id" TEXT UNIQUE NOT NULL,
         "structure_type" TEXT NOT NULL,
@@ -38,10 +35,8 @@ export async function GET() {
         "position_y" INTEGER NOT NULL,
         "last_activity_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT "Building_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-
-      -- 3. PeerVote
-      CREATE TABLE IF NOT EXISTS "PeerVote" (
+      )`,
+      `CREATE TABLE IF NOT EXISTS "PeerVote" (
         "id" TEXT PRIMARY KEY,
         "voter_id" TEXT NOT NULL,
         "target_user_id" TEXT NOT NULL,
@@ -54,10 +49,8 @@ export async function GET() {
         "flagged" BOOLEAN DEFAULT FALSE,
         CONSTRAINT "PeerVote_voter_id_fkey" FOREIGN KEY ("voter_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
         CONSTRAINT "PeerVote_target_user_id_fkey" FOREIGN KEY ("target_user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-
-      -- 4. CityCredit
-      CREATE TABLE IF NOT EXISTS "CityCredit" (
+      )`,
+      `CREATE TABLE IF NOT EXISTS "CityCredit" (
         "id" TEXT PRIMARY KEY,
         "user_id" TEXT UNIQUE NOT NULL,
         "balance" INTEGER DEFAULT 0,
@@ -67,10 +60,8 @@ export async function GET() {
         "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         "updated_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT "CityCredit_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-
-      -- 5. Badge
-      CREATE TABLE IF NOT EXISTS "Badge" (
+      )`,
+      `CREATE TABLE IF NOT EXISTS "Badge" (
         "id" TEXT PRIMARY KEY,
         "name" TEXT NOT NULL,
         "description" TEXT NOT NULL,
@@ -80,10 +71,8 @@ export async function GET() {
         "reward_cc" INTEGER DEFAULT 0,
         "rarity" TEXT DEFAULT 'common',
         "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      );
-
-      -- 6. UserBadge
-      CREATE TABLE IF NOT EXISTS "UserBadge" (
+      )`,
+      `CREATE TABLE IF NOT EXISTS "UserBadge" (
         "id" TEXT PRIMARY KEY,
         "user_id" TEXT NOT NULL,
         "badge_id" TEXT NOT NULL,
@@ -91,11 +80,9 @@ export async function GET() {
         "claimed" BOOLEAN DEFAULT FALSE,
         CONSTRAINT "UserBadge_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
         CONSTRAINT "UserBadge_badge_id_fkey" FOREIGN KEY ("badge_id") REFERENCES "Badge"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-      CREATE UNIQUE INDEX IF NOT EXISTS "UserBadge_user_id_badge_id_key" ON "UserBadge"("user_id", "badge_id");
-
-      -- 7. Account (NextAuth)
-      CREATE TABLE IF NOT EXISTS "Account" (
+      )`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS "UserBadge_user_id_badge_id_key" ON "UserBadge"("user_id", "badge_id")`,
+      `CREATE TABLE IF NOT EXISTS "Account" (
         "id" TEXT PRIMARY KEY,
         "userId" TEXT NOT NULL,
         "type" TEXT NOT NULL,
@@ -109,27 +96,28 @@ export async function GET() {
         "id_token" TEXT,
         "session_state" TEXT,
         CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-      CREATE UNIQUE INDEX IF NOT EXISTS "Account_provider_providerAccountId_key" ON "Account"("provider", "providerAccountId");
-
-      -- 8. Session (NextAuth)
-      CREATE TABLE IF NOT EXISTS "Session" (
+      )`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS "Account_provider_providerAccountId_key" ON "Account"("provider", "providerAccountId")`,
+      `CREATE TABLE IF NOT EXISTS "Session" (
         "id" TEXT PRIMARY KEY,
         "sessionToken" TEXT UNIQUE NOT NULL,
         "userId" TEXT NOT NULL,
         "expires" TIMESTAMP WITH TIME ZONE NOT NULL,
         CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
-      );
-
-      -- 9. VerificationToken (NextAuth)
-      CREATE TABLE IF NOT EXISTS "VerificationToken" (
+      )`,
+      `CREATE TABLE IF NOT EXISTS "VerificationToken" (
         "identifier" TEXT NOT NULL,
         "token" TEXT UNIQUE NOT NULL,
         "expires" TIMESTAMP WITH TIME ZONE NOT NULL
-      );
-      CREATE UNIQUE INDEX IF NOT EXISTS "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
-    `);
-    results.push({ step: 'manual-sql', status: 'success', message: 'All tables created/verified' });
+      )`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token")`
+    ];
+
+    for (const sql of commands) {
+      console.log('🔄 [DIAGNOSTIC] Executing command:', sql.substring(0, 50));
+      await prisma.$executeRawUnsafe(sql);
+    }
+    results.push({ step: 'manual-sql', status: 'success', message: 'All tables created/verified sequentially' });
 
     // 2. Verify tables
     const tables = (await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`) as unknown[];
