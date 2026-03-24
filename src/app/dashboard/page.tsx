@@ -9,6 +9,10 @@ import VotingPanel from "@/components/dashboard/VotingPanel";
 import CreditsDisplay from "@/components/dashboard/CreditsDisplay";
 import BadgeShowcase from "@/components/dashboard/BadgeShowcase";
 import MyBuildingPreview from "@/components/dashboard/MyBuildingPreview";
+import DistrictShowcase from "@/components/districts/DistrictShowcase";
+import { MarketplaceUI } from "@/components/marketplace/MarketplaceUI";
+import { InventoryPanel } from "@/components/dashboard/InventoryPanel";
+import prisma from "@/lib/db/prisma";
 
 export const metadata = {
   title: "Dashboard | Atlas City",
@@ -20,7 +24,8 @@ export const metadata = {
 };
 
 const getTrustData = async (userId: string) => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/reputation/trust/${userId}`, {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || (process.env.NODE_ENV === 'production' ? 'https://atlas-city-seven.vercel.app' : 'http://localhost:3000');
+  const res = await fetch(`${baseUrl}/api/reputation/trust/${userId}`, {
     cache: 'no-store'
   });
   if (!res.ok) return { trustScore: 0.5, status: "Neutral" };
@@ -30,7 +35,8 @@ const getTrustData = async (userId: string) => {
 const getScoreData = async (userId: string) => {
   // Use absolute URL for server-side fetch or direct lib call if possible.
   // For simplicity and to reuse the API logic:
-  const res = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/score/${userId}`, {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || (process.env.NODE_ENV === 'production' ? 'https://atlas-city-seven.vercel.app' : 'http://localhost:3000');
+  const res = await fetch(`${baseUrl}/api/score/${userId}`, {
     cache: 'no-store'
   });
   if (!res.ok) return null;
@@ -44,12 +50,18 @@ export default async function DashboardPage() {
     redirect("/api/auth/signin");
   }
 
-  // Use the name or email as the user_id for the mock API
   const userId = session.user.email || session.user.name || "unknown";
-  const [scoreData, trustData] = await Promise.all([
+  const [scoreData, trustData, userMarketData] = await Promise.all([
     getScoreData(userId),
-    getTrustData(userId)
+    getTrustData(userId),
+    prisma.user.findUnique({
+      where: { id: session.user.id },
+      include: { city_credit: true }
+    })
   ]);
+
+  const balance = userMarketData?.city_credit?.balance || 0;
+  const claimed = userMarketData?.district_claimed || false;
 
   return (
     <main className="min-h-screen bg-slate-950 text-white font-sans selection:bg-amber-400 selection:text-black">
@@ -101,7 +113,15 @@ export default async function DashboardPage() {
             <MyBuildingPreview />
             <CreditsDisplay />
             <BadgeShowcase />
+            <DistrictShowcase userScore={scoreData?.score || 0} hasClaimed={false} />
             <VotingPanel />
+            
+            {/* Store & Inventory */}
+            <div id="loja" className="scroll-mt-24 space-y-8">
+               <InventoryPanel />
+               <MarketplaceUI userBalance={balance} districtClaimed={claimed} />
+            </div>
+
             <NextSteps />
           </div>
 
@@ -113,7 +133,7 @@ export default async function DashboardPage() {
             <div className="bg-gradient-to-br from-indigo-900/20 to-blue-900/20 border border-blue-900/30 rounded-2xl p-6">
                <h4 className="text-blue-400 font-bold mb-2 uppercase tracking-tighter text-xs">District Status</h4>
                <p className="text-slate-300 text-sm leading-snug font-medium">
-                 Your building is currently in the <strong className="text-white">Central Development Zone</strong>. Reach 5,000 DIS to unlock the Upper Tier Skyline.
+                 Claim a district from the panel on the left to unlock <strong className="text-white">exclusive score bonuses</strong> and a permanent badge.
                </p>
             </div>
           </div>

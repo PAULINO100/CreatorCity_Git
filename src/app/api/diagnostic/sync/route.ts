@@ -8,8 +8,14 @@ export async function GET() {
   const results: Record<string, unknown>[] = [];
   
   try {
-    // 1. Manual SQL Schema Creation (Sequential to avoid prepared statement issues)
     console.log('🔄 [DIAGNOSTIC] Step 1: Running manual SQL for ALL tables...');
+    
+    // Detect provider
+    const isPostgres = process.env.DATABASE_URL?.startsWith('postgres') || process.env.DATABASE_URL?.startsWith('postgresql');
+    
+    const timestampType = isPostgres ? 'TIMESTAMP WITH TIME ZONE' : 'DATETIME';
+    const doubleType = isPostgres ? 'DOUBLE PRECISION' : 'REAL';
+
     const commands = [
       `CREATE TABLE IF NOT EXISTS "User" (
         "id" TEXT PRIMARY KEY,
@@ -19,9 +25,9 @@ export async function GET() {
         "avatar_url" TEXT,
         "dis_score" INTEGER DEFAULT 0,
         "cis_score" INTEGER DEFAULT 0,
-        "trust_score" DOUBLE PRECISION DEFAULT 0.0,
-        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-        "updated_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        "trust_score" ${doubleType} DEFAULT 0.0,
+        "created_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
+        "updated_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP
       )`,
       `CREATE UNIQUE INDEX IF NOT EXISTS "User_email_key" ON "User"("email")`,
       `CREATE UNIQUE INDEX IF NOT EXISTS "User_github_id_key" ON "User"("github_id")`,
@@ -33,18 +39,18 @@ export async function GET() {
         "district" TEXT NOT NULL,
         "position_x" INTEGER NOT NULL,
         "position_y" INTEGER NOT NULL,
-        "last_activity_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        "last_activity_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT "Building_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
       )`,
       `CREATE TABLE IF NOT EXISTS "PeerVote" (
         "id" TEXT PRIMARY KEY,
         "voter_id" TEXT NOT NULL,
         "target_user_id" TEXT NOT NULL,
-        "vote_value" DOUBLE PRECISION DEFAULT 0.0,
-        "weight" DOUBLE PRECISION DEFAULT 1.0,
-        "decay_factor" DOUBLE PRECISION DEFAULT 1.0,
-        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-        "expires_at" TIMESTAMP WITH TIME ZONE,
+        "vote_value" ${doubleType} DEFAULT 0.0,
+        "weight" ${doubleType} DEFAULT 1.0,
+        "decay_factor" ${doubleType} DEFAULT 1.0,
+        "created_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
+        "expires_at" ${timestampType},
         "is_reciprocal" BOOLEAN DEFAULT FALSE,
         "flagged" BOOLEAN DEFAULT FALSE,
         CONSTRAINT "PeerVote_voter_id_fkey" FOREIGN KEY ("voter_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -54,11 +60,11 @@ export async function GET() {
         "id" TEXT PRIMARY KEY,
         "user_id" TEXT UNIQUE NOT NULL,
         "balance" INTEGER DEFAULT 0,
-        "last_claim_at" TIMESTAMP WITH TIME ZONE,
+        "last_claim_at" ${timestampType},
         "reputation_points" INTEGER DEFAULT 0,
         "transaction_history" TEXT DEFAULT '[]',
-        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-        "updated_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        "created_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
+        "updated_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT "CityCredit_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
       )`,
       `CREATE TABLE IF NOT EXISTS "Badge" (
@@ -70,13 +76,13 @@ export async function GET() {
         "requirement_value" INTEGER NOT NULL,
         "reward_cc" INTEGER DEFAULT 0,
         "rarity" TEXT DEFAULT 'common',
-        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        "created_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP
       )`,
       `CREATE TABLE IF NOT EXISTS "UserBadge" (
         "id" TEXT PRIMARY KEY,
         "user_id" TEXT NOT NULL,
         "badge_id" TEXT NOT NULL,
-        "unlocked_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        "unlocked_at" ${timestampType} DEFAULT CURRENT_TIMESTAMP,
         "claimed" BOOLEAN DEFAULT FALSE,
         CONSTRAINT "UserBadge_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE,
         CONSTRAINT "UserBadge_badge_id_fkey" FOREIGN KEY ("badge_id") REFERENCES "Badge"("id") ON DELETE CASCADE ON UPDATE CASCADE
@@ -102,13 +108,13 @@ export async function GET() {
         "id" TEXT PRIMARY KEY,
         "sessionToken" TEXT UNIQUE NOT NULL,
         "userId" TEXT NOT NULL,
-        "expires" TIMESTAMP WITH TIME ZONE NOT NULL,
+        "expires" ${timestampType} NOT NULL,
         CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE
       )`,
       `CREATE TABLE IF NOT EXISTS "VerificationToken" (
         "identifier" TEXT NOT NULL,
         "token" TEXT UNIQUE NOT NULL,
-        "expires" TIMESTAMP WITH TIME ZONE NOT NULL
+        "expires" ${timestampType} NOT NULL
       )`,
       `CREATE UNIQUE INDEX IF NOT EXISTS "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token")`
     ];
@@ -120,7 +126,11 @@ export async function GET() {
     results.push({ step: 'manual-sql', status: 'success', message: 'All tables created/verified sequentially' });
 
     // 2. Verify tables
-    const tables = (await prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`) as unknown[];
+    let tableCheckSql = isPostgres 
+      ? prisma.$queryRaw`SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'`
+      : prisma.$queryRaw`SELECT name as tablename FROM sqlite_master WHERE type='table'`;
+    
+    const tables = await tableCheckSql;
     results.push({ step: 'verify-tables', status: 'success', tables });
 
     return NextResponse.json({ message: 'Synchronization complete', results });

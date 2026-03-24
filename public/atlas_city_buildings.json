@@ -1,0 +1,5351 @@
+{
+    "meta": {
+        "total_predios": 250,
+        "total_agentes": 210920,
+        "total_problemas_resolvidos": 5420180
+    },
+    "bairros": {
+        "Tecnologia": {
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB33",
+            "centro": {
+                "x": 400,
+                "y": 400
+            },
+            "raio": 300
+        },
+        "Engenharia": {
+            "cor": "#DC2626",
+            "cor_claro": "#DC262633",
+            "centro": {
+                "x": 1200,
+                "y": 400
+            },
+            "raio": 250
+        },
+        "Saúde": {
+            "cor": "#059669",
+            "cor_claro": "#05966933",
+            "centro": {
+                "x": 400,
+                "y": 1200
+            },
+            "raio": 280
+        },
+        "Direito": {
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED33",
+            "centro": {
+                "x": 1200,
+                "y": 1200
+            },
+            "raio": 220
+        },
+        "Educação": {
+            "cor": "#D97706",
+            "cor_claro": "#D9770633",
+            "centro": {
+                "x": 800,
+                "y": 800
+            },
+            "raio": 200
+        },
+        "Negócios": {
+            "cor": "#0891B2",
+            "cor_claro": "#0891B233",
+            "centro": {
+                "x": 1600,
+                "y": 800
+            },
+            "raio": 240
+        },
+        "Construção": {
+            "cor": "#92400E",
+            "cor_claro": "#92400E33",
+            "centro": {
+                "x": 400,
+                "y": 1800
+            },
+            "raio": 200
+        },
+        "Agro": {
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F33",
+            "centro": {
+                "x": 1200,
+                "y": 1800
+            },
+            "raio": 230
+        },
+        "Arte": {
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D33",
+            "centro": {
+                "x": 1800,
+                "y": 1400
+            },
+            "raio": 210
+        },
+        "Ciência": {
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D933",
+            "centro": {
+                "x": 1800,
+                "y": 400
+            },
+            "raio": 220
+        }
+    },
+    "predios": {
+        "bldg_1": {
+            "id": "bldg_1",
+            "nome": "Prédio Tecnologia 1",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 424,
+                "y": 589
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Backend",
+                "SRE",
+                "Cybersecurity"
+            ],
+            "agentes_ativos": 1334,
+            "problemas_resolvidos": 7612,
+            "status": "online"
+        },
+        "bldg_2": {
+            "id": "bldg_2",
+            "nome": "Prédio Tecnologia 2",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 481,
+                "y": 348
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Backend",
+                "Mobile",
+                "Frontend"
+            ],
+            "agentes_ativos": 1159,
+            "problemas_resolvidos": 31295,
+            "status": "online"
+        },
+        "bldg_3": {
+            "id": "bldg_3",
+            "nome": "Prédio Tecnologia 3",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 333,
+                "y": 606
+            },
+            "andares": 43,
+            "nivel": 3,
+            "especialidades": [
+                "Cloud",
+                "Backend",
+                "Mobile"
+            ],
+            "agentes_ativos": 1203,
+            "problemas_resolvidos": 34098,
+            "status": "online"
+        },
+        "bldg_4": {
+            "id": "bldg_4",
+            "nome": "Prédio Tecnologia 4",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 260,
+                "y": 356
+            },
+            "andares": 43,
+            "nivel": 3,
+            "especialidades": [
+                "Frontend",
+                "Cybersecurity",
+                "SRE"
+            ],
+            "agentes_ativos": 1395,
+            "problemas_resolvidos": 25325,
+            "status": "online"
+        },
+        "bldg_5": {
+            "id": "bldg_5",
+            "nome": "Prédio Tecnologia 5",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 199,
+                "y": 555
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "DevOps",
+                "Cybersecurity",
+                "Backend"
+            ],
+            "agentes_ativos": 1979,
+            "problemas_resolvidos": 48845,
+            "status": "online"
+        },
+        "bldg_6": {
+            "id": "bldg_6",
+            "nome": "Prédio Tecnologia 6",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 340,
+                "y": 350
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Mobile",
+                "SRE",
+                "Cloud"
+            ],
+            "agentes_ativos": 194,
+            "problemas_resolvidos": 8063,
+            "status": "online"
+        },
+        "bldg_7": {
+            "id": "bldg_7",
+            "nome": "Prédio Tecnologia 7",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 583,
+                "y": 396
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "DevOps",
+                "Mobile",
+                "Backend"
+            ],
+            "agentes_ativos": 1028,
+            "problemas_resolvidos": 29818,
+            "status": "online"
+        },
+        "bldg_8": {
+            "id": "bldg_8",
+            "nome": "Prédio Tecnologia 8",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 252,
+                "y": 378
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Frontend",
+                "Cloud",
+                "Cybersecurity"
+            ],
+            "agentes_ativos": 1664,
+            "problemas_resolvidos": 28229,
+            "status": "online"
+        },
+        "bldg_9": {
+            "id": "bldg_9",
+            "nome": "Prédio Tecnologia 9",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 310,
+                "y": 227
+            },
+            "andares": 20,
+            "nivel": 2,
+            "especialidades": [
+                "Frontend",
+                "SRE",
+                "DevOps"
+            ],
+            "agentes_ativos": 240,
+            "problemas_resolvidos": 49768,
+            "status": "online"
+        },
+        "bldg_10": {
+            "id": "bldg_10",
+            "nome": "Prédio Tecnologia 10",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 183,
+                "y": 552
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Mobile",
+                "Cloud",
+                "Frontend"
+            ],
+            "agentes_ativos": 1611,
+            "problemas_resolvidos": 39594,
+            "status": "online"
+        },
+        "bldg_11": {
+            "id": "bldg_11",
+            "nome": "Prédio Tecnologia 11",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 541,
+                "y": 530
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Cybersecurity",
+                "Frontend",
+                "SRE"
+            ],
+            "agentes_ativos": 1973,
+            "problemas_resolvidos": 49316,
+            "status": "online"
+        },
+        "bldg_12": {
+            "id": "bldg_12",
+            "nome": "Prédio Tecnologia 12",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 449,
+                "y": 206
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "DevOps",
+                "SRE",
+                "Frontend"
+            ],
+            "agentes_ativos": 409,
+            "problemas_resolvidos": 26477,
+            "status": "online"
+        },
+        "bldg_13": {
+            "id": "bldg_13",
+            "nome": "Prédio Tecnologia 13",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 531,
+                "y": 360
+            },
+            "andares": 11,
+            "nivel": 1,
+            "especialidades": [
+                "Mobile",
+                "Frontend",
+                "DevOps"
+            ],
+            "agentes_ativos": 764,
+            "problemas_resolvidos": 19133,
+            "status": "online"
+        },
+        "bldg_14": {
+            "id": "bldg_14",
+            "nome": "Prédio Tecnologia 14",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 451,
+                "y": 216
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Mobile",
+                "SRE",
+                "Frontend"
+            ],
+            "agentes_ativos": 607,
+            "problemas_resolvidos": 42222,
+            "status": "online"
+        },
+        "bldg_15": {
+            "id": "bldg_15",
+            "nome": "Prédio Tecnologia 15",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 567,
+                "y": 212
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Backend",
+                "Cloud",
+                "Cybersecurity"
+            ],
+            "agentes_ativos": 1531,
+            "problemas_resolvidos": 38948,
+            "status": "online"
+        },
+        "bldg_16": {
+            "id": "bldg_16",
+            "nome": "Prédio Tecnologia 16",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 263,
+                "y": 261
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Frontend",
+                "DevOps",
+                "Backend"
+            ],
+            "agentes_ativos": 680,
+            "problemas_resolvidos": 4485,
+            "status": "online"
+        },
+        "bldg_17": {
+            "id": "bldg_17",
+            "nome": "Prédio Tecnologia 17",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 361,
+                "y": 267
+            },
+            "andares": 30,
+            "nivel": 3,
+            "especialidades": [
+                "SRE",
+                "Cloud",
+                "Frontend"
+            ],
+            "agentes_ativos": 1330,
+            "problemas_resolvidos": 8486,
+            "status": "online"
+        },
+        "bldg_18": {
+            "id": "bldg_18",
+            "nome": "Prédio Tecnologia 18",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 617,
+                "y": 510
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Mobile",
+                "Backend",
+                "Cloud"
+            ],
+            "agentes_ativos": 223,
+            "problemas_resolvidos": 17798,
+            "status": "online"
+        },
+        "bldg_19": {
+            "id": "bldg_19",
+            "nome": "Prédio Tecnologia 19",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 619,
+                "y": 390
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Cybersecurity",
+                "DevOps",
+                "Cloud"
+            ],
+            "agentes_ativos": 1723,
+            "problemas_resolvidos": 5327,
+            "status": "online"
+        },
+        "bldg_20": {
+            "id": "bldg_20",
+            "nome": "Prédio Tecnologia 20",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 449,
+                "y": 190
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Mobile",
+                "Backend",
+                "SRE"
+            ],
+            "agentes_ativos": 354,
+            "problemas_resolvidos": 4928,
+            "status": "online"
+        },
+        "bldg_21": {
+            "id": "bldg_21",
+            "nome": "Prédio Tecnologia 21",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 257,
+                "y": 295
+            },
+            "andares": 48,
+            "nivel": 3,
+            "especialidades": [
+                "Cloud",
+                "Frontend",
+                "SRE"
+            ],
+            "agentes_ativos": 419,
+            "problemas_resolvidos": 49670,
+            "status": "online"
+        },
+        "bldg_22": {
+            "id": "bldg_22",
+            "nome": "Prédio Tecnologia 22",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 507,
+                "y": 513
+            },
+            "andares": 20,
+            "nivel": 2,
+            "especialidades": [
+                "Cloud",
+                "SRE",
+                "Frontend"
+            ],
+            "agentes_ativos": 1365,
+            "problemas_resolvidos": 3147,
+            "status": "online"
+        },
+        "bldg_23": {
+            "id": "bldg_23",
+            "nome": "Prédio Tecnologia 23",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 605,
+                "y": 262
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "SRE",
+                "DevOps",
+                "Frontend"
+            ],
+            "agentes_ativos": 477,
+            "problemas_resolvidos": 29298,
+            "status": "online"
+        },
+        "bldg_24": {
+            "id": "bldg_24",
+            "nome": "Prédio Tecnologia 24",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 354,
+                "y": 375
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Cybersecurity",
+                "Cloud",
+                "Mobile"
+            ],
+            "agentes_ativos": 856,
+            "problemas_resolvidos": 7012,
+            "status": "online"
+        },
+        "bldg_25": {
+            "id": "bldg_25",
+            "nome": "Prédio Tecnologia 25",
+            "bairro": "Tecnologia",
+            "cor": "#2563EB",
+            "cor_claro": "#2563EB44",
+            "posicao": {
+                "x": 445,
+                "y": 197
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Mobile",
+                "SRE",
+                "DevOps"
+            ],
+            "agentes_ativos": 910,
+            "problemas_resolvidos": 17581,
+            "status": "online"
+        },
+        "bldg_26": {
+            "id": "bldg_26",
+            "nome": "Prédio Engenharia 1",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1213,
+                "y": 265
+            },
+            "andares": 18,
+            "nivel": 2,
+            "especialidades": [
+                "Mecânica",
+                "Elétrica",
+                "Civil"
+            ],
+            "agentes_ativos": 198,
+            "problemas_resolvidos": 41387,
+            "status": "online"
+        },
+        "bldg_27": {
+            "id": "bldg_27",
+            "nome": "Prédio Engenharia 2",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1211,
+                "y": 516
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Produção",
+                "Elétrica",
+                "Química"
+            ],
+            "agentes_ativos": 160,
+            "problemas_resolvidos": 41410,
+            "status": "online"
+        },
+        "bldg_28": {
+            "id": "bldg_28",
+            "nome": "Prédio Engenharia 3",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1016,
+                "y": 425
+            },
+            "andares": 37,
+            "nivel": 3,
+            "especialidades": [
+                "Civil",
+                "Mecânica",
+                "Aeroespacial"
+            ],
+            "agentes_ativos": 762,
+            "problemas_resolvidos": 3951,
+            "status": "online"
+        },
+        "bldg_29": {
+            "id": "bldg_29",
+            "nome": "Prédio Engenharia 4",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1132,
+                "y": 502
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Aeroespacial",
+                "Química",
+                "Mecânica"
+            ],
+            "agentes_ativos": 1818,
+            "problemas_resolvidos": 19712,
+            "status": "online"
+        },
+        "bldg_30": {
+            "id": "bldg_30",
+            "nome": "Prédio Engenharia 5",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1175,
+                "y": 224
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Produção",
+                "Civil",
+                "Química"
+            ],
+            "agentes_ativos": 803,
+            "problemas_resolvidos": 16057,
+            "status": "online"
+        },
+        "bldg_31": {
+            "id": "bldg_31",
+            "nome": "Prédio Engenharia 6",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1125,
+                "y": 482
+            },
+            "andares": 18,
+            "nivel": 2,
+            "especialidades": [
+                "Produção",
+                "Civil",
+                "Aeroespacial"
+            ],
+            "agentes_ativos": 667,
+            "problemas_resolvidos": 30530,
+            "status": "online"
+        },
+        "bldg_32": {
+            "id": "bldg_32",
+            "nome": "Prédio Engenharia 7",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1249,
+                "y": 540
+            },
+            "andares": 39,
+            "nivel": 3,
+            "especialidades": [
+                "Produção",
+                "Aeroespacial",
+                "Civil"
+            ],
+            "agentes_ativos": 1109,
+            "problemas_resolvidos": 23202,
+            "status": "online"
+        },
+        "bldg_33": {
+            "id": "bldg_33",
+            "nome": "Prédio Engenharia 8",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1342,
+                "y": 400
+            },
+            "andares": 39,
+            "nivel": 3,
+            "especialidades": [
+                "Aeroespacial",
+                "Elétrica",
+                "Mecânica"
+            ],
+            "agentes_ativos": 1522,
+            "problemas_resolvidos": 11364,
+            "status": "online"
+        },
+        "bldg_34": {
+            "id": "bldg_34",
+            "nome": "Prédio Engenharia 9",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1239,
+                "y": 470
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Aeroespacial",
+                "Civil",
+                "Mecânica"
+            ],
+            "agentes_ativos": 1659,
+            "problemas_resolvidos": 25599,
+            "status": "online"
+        },
+        "bldg_35": {
+            "id": "bldg_35",
+            "nome": "Prédio Engenharia 10",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1171,
+                "y": 546
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Química",
+                "Produção"
+            ],
+            "agentes_ativos": 1463,
+            "problemas_resolvidos": 10878,
+            "status": "online"
+        },
+        "bldg_36": {
+            "id": "bldg_36",
+            "nome": "Prédio Engenharia 11",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1105,
+                "y": 464
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Química",
+                "Aeroespacial",
+                "Elétrica"
+            ],
+            "agentes_ativos": 279,
+            "problemas_resolvidos": 15792,
+            "status": "online"
+        },
+        "bldg_37": {
+            "id": "bldg_37",
+            "nome": "Prédio Engenharia 12",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1129,
+                "y": 494
+            },
+            "andares": 41,
+            "nivel": 3,
+            "especialidades": [
+                "Aeroespacial",
+                "Civil",
+                "Química"
+            ],
+            "agentes_ativos": 713,
+            "problemas_resolvidos": 18655,
+            "status": "online"
+        },
+        "bldg_38": {
+            "id": "bldg_38",
+            "nome": "Prédio Engenharia 13",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1156,
+                "y": 327
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Elétrica",
+                "Mecânica",
+                "Produção"
+            ],
+            "agentes_ativos": 368,
+            "problemas_resolvidos": 11870,
+            "status": "online"
+        },
+        "bldg_39": {
+            "id": "bldg_39",
+            "nome": "Prédio Engenharia 14",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1204,
+                "y": 233
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Química",
+                "Civil",
+                "Elétrica"
+            ],
+            "agentes_ativos": 1963,
+            "problemas_resolvidos": 35417,
+            "status": "online"
+        },
+        "bldg_40": {
+            "id": "bldg_40",
+            "nome": "Prédio Engenharia 15",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1188,
+                "y": 471
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Aeroespacial",
+                "Mecânica"
+            ],
+            "agentes_ativos": 1683,
+            "problemas_resolvidos": 2163,
+            "status": "online"
+        },
+        "bldg_41": {
+            "id": "bldg_41",
+            "nome": "Prédio Engenharia 16",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1119,
+                "y": 546
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Produção",
+                "Aeroespacial",
+                "Elétrica"
+            ],
+            "agentes_ativos": 533,
+            "problemas_resolvidos": 22952,
+            "status": "online"
+        },
+        "bldg_42": {
+            "id": "bldg_42",
+            "nome": "Prédio Engenharia 17",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1204,
+                "y": 476
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Produção",
+                "Aeroespacial",
+                "Civil"
+            ],
+            "agentes_ativos": 204,
+            "problemas_resolvidos": 18436,
+            "status": "online"
+        },
+        "bldg_43": {
+            "id": "bldg_43",
+            "nome": "Prédio Engenharia 18",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1107,
+                "y": 406
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Produção",
+                "Mecânica",
+                "Elétrica"
+            ],
+            "agentes_ativos": 1289,
+            "problemas_resolvidos": 28836,
+            "status": "online"
+        },
+        "bldg_44": {
+            "id": "bldg_44",
+            "nome": "Prédio Engenharia 19",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1203,
+                "y": 523
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Produção",
+                "Mecânica",
+                "Aeroespacial"
+            ],
+            "agentes_ativos": 1562,
+            "problemas_resolvidos": 34225,
+            "status": "online"
+        },
+        "bldg_45": {
+            "id": "bldg_45",
+            "nome": "Prédio Engenharia 20",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1287,
+                "y": 369
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Mecânica",
+                "Aeroespacial",
+                "Produção"
+            ],
+            "agentes_ativos": 1165,
+            "problemas_resolvidos": 27372,
+            "status": "online"
+        },
+        "bldg_46": {
+            "id": "bldg_46",
+            "nome": "Prédio Engenharia 21",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1208,
+                "y": 249
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "Elétrica",
+                "Aeroespacial",
+                "Civil"
+            ],
+            "agentes_ativos": 857,
+            "problemas_resolvidos": 29013,
+            "status": "online"
+        },
+        "bldg_47": {
+            "id": "bldg_47",
+            "nome": "Prédio Engenharia 22",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1165,
+                "y": 406
+            },
+            "andares": 15,
+            "nivel": 2,
+            "especialidades": [
+                "Produção",
+                "Aeroespacial",
+                "Química"
+            ],
+            "agentes_ativos": 1908,
+            "problemas_resolvidos": 49818,
+            "status": "online"
+        },
+        "bldg_48": {
+            "id": "bldg_48",
+            "nome": "Prédio Engenharia 23",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1301,
+                "y": 447
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Elétrica",
+                "Química"
+            ],
+            "agentes_ativos": 1931,
+            "problemas_resolvidos": 37513,
+            "status": "online"
+        },
+        "bldg_49": {
+            "id": "bldg_49",
+            "nome": "Prédio Engenharia 24",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1082,
+                "y": 261
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Elétrica",
+                "Civil",
+                "Mecânica"
+            ],
+            "agentes_ativos": 539,
+            "problemas_resolvidos": 23276,
+            "status": "online"
+        },
+        "bldg_50": {
+            "id": "bldg_50",
+            "nome": "Prédio Engenharia 25",
+            "bairro": "Engenharia",
+            "cor": "#DC2626",
+            "cor_claro": "#DC262644",
+            "posicao": {
+                "x": 1191,
+                "y": 458
+            },
+            "andares": 21,
+            "nivel": 2,
+            "especialidades": [
+                "Mecânica",
+                "Aeroespacial",
+                "Química"
+            ],
+            "agentes_ativos": 856,
+            "problemas_resolvidos": 45678,
+            "status": "online"
+        },
+        "bldg_51": {
+            "id": "bldg_51",
+            "nome": "Prédio Saúde 1",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 545,
+                "y": 1160
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Enfermagem",
+                "Nutrição",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 963,
+            "problemas_resolvidos": 22384,
+            "status": "online"
+        },
+        "bldg_52": {
+            "id": "bldg_52",
+            "nome": "Prédio Saúde 2",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 282,
+                "y": 1313
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Fisioterapia",
+                "Medicina",
+                "Enfermagem"
+            ],
+            "agentes_ativos": 710,
+            "problemas_resolvidos": 32130,
+            "status": "online"
+        },
+        "bldg_53": {
+            "id": "bldg_53",
+            "nome": "Prédio Saúde 3",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 381,
+                "y": 1207
+            },
+            "andares": 33,
+            "nivel": 3,
+            "especialidades": [
+                "Fisioterapia",
+                "Medicina",
+                "Psicologia"
+            ],
+            "agentes_ativos": 879,
+            "problemas_resolvidos": 40726,
+            "status": "online"
+        },
+        "bldg_54": {
+            "id": "bldg_54",
+            "nome": "Prédio Saúde 4",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 195,
+                "y": 1319
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Enfermagem",
+                "Nutrição",
+                "Psicologia"
+            ],
+            "agentes_ativos": 1981,
+            "problemas_resolvidos": 14963,
+            "status": "online"
+        },
+        "bldg_55": {
+            "id": "bldg_55",
+            "nome": "Prédio Saúde 5",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 561,
+                "y": 1114
+            },
+            "andares": 18,
+            "nivel": 2,
+            "especialidades": [
+                "Psicologia",
+                "Odontologia",
+                "Enfermagem"
+            ],
+            "agentes_ativos": 1096,
+            "problemas_resolvidos": 9345,
+            "status": "online"
+        },
+        "bldg_56": {
+            "id": "bldg_56",
+            "nome": "Prédio Saúde 6",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 310,
+                "y": 1331
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Nutrição",
+                "Psicologia",
+                "Medicina"
+            ],
+            "agentes_ativos": 939,
+            "problemas_resolvidos": 37545,
+            "status": "online"
+        },
+        "bldg_57": {
+            "id": "bldg_57",
+            "nome": "Prédio Saúde 7",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 289,
+                "y": 1400
+            },
+            "andares": 43,
+            "nivel": 3,
+            "especialidades": [
+                "Nutrição",
+                "Enfermagem",
+                "Odontologia"
+            ],
+            "agentes_ativos": 1403,
+            "problemas_resolvidos": 26482,
+            "status": "online"
+        },
+        "bldg_58": {
+            "id": "bldg_58",
+            "nome": "Prédio Saúde 8",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 201,
+                "y": 1182
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "Medicina",
+                "Nutrição",
+                "Odontologia"
+            ],
+            "agentes_ativos": 500,
+            "problemas_resolvidos": 1856,
+            "status": "online"
+        },
+        "bldg_59": {
+            "id": "bldg_59",
+            "nome": "Prédio Saúde 9",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 337,
+                "y": 1024
+            },
+            "andares": 24,
+            "nivel": 2,
+            "especialidades": [
+                "Fisioterapia",
+                "Medicina",
+                "Psicologia"
+            ],
+            "agentes_ativos": 1293,
+            "problemas_resolvidos": 2076,
+            "status": "online"
+        },
+        "bldg_60": {
+            "id": "bldg_60",
+            "nome": "Prédio Saúde 10",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 590,
+                "y": 1375
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Odontologia",
+                "Psicologia",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 977,
+            "problemas_resolvidos": 37611,
+            "status": "online"
+        },
+        "bldg_61": {
+            "id": "bldg_61",
+            "nome": "Prédio Saúde 11",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 424,
+                "y": 1371
+            },
+            "andares": 37,
+            "nivel": 3,
+            "especialidades": [
+                "Psicologia",
+                "Nutrição",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 880,
+            "problemas_resolvidos": 2993,
+            "status": "online"
+        },
+        "bldg_62": {
+            "id": "bldg_62",
+            "nome": "Prédio Saúde 12",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 273,
+                "y": 1390
+            },
+            "andares": 28,
+            "nivel": 2,
+            "especialidades": [
+                "Medicina",
+                "Nutrição",
+                "Odontologia"
+            ],
+            "agentes_ativos": 266,
+            "problemas_resolvidos": 15689,
+            "status": "online"
+        },
+        "bldg_63": {
+            "id": "bldg_63",
+            "nome": "Prédio Saúde 13",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 433,
+                "y": 1035
+            },
+            "andares": 15,
+            "nivel": 2,
+            "especialidades": [
+                "Medicina",
+                "Fisioterapia",
+                "Psicologia"
+            ],
+            "agentes_ativos": 189,
+            "problemas_resolvidos": 39533,
+            "status": "online"
+        },
+        "bldg_64": {
+            "id": "bldg_64",
+            "nome": "Prédio Saúde 14",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 396,
+                "y": 1026
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Enfermagem",
+                "Odontologia",
+                "Nutrição"
+            ],
+            "agentes_ativos": 1409,
+            "problemas_resolvidos": 23989,
+            "status": "online"
+        },
+        "bldg_65": {
+            "id": "bldg_65",
+            "nome": "Prédio Saúde 15",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 202,
+                "y": 1213
+            },
+            "andares": 8,
+            "nivel": 1,
+            "especialidades": [
+                "Medicina",
+                "Fisioterapia",
+                "Nutrição"
+            ],
+            "agentes_ativos": 1996,
+            "problemas_resolvidos": 38842,
+            "status": "online"
+        },
+        "bldg_66": {
+            "id": "bldg_66",
+            "nome": "Prédio Saúde 16",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 500,
+                "y": 1101
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Psicologia",
+                "Odontologia",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 1757,
+            "problemas_resolvidos": 13939,
+            "status": "online"
+        },
+        "bldg_67": {
+            "id": "bldg_67",
+            "nome": "Prédio Saúde 17",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 502,
+                "y": 1261
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Nutrição",
+                "Psicologia",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 815,
+            "problemas_resolvidos": 36293,
+            "status": "online"
+        },
+        "bldg_68": {
+            "id": "bldg_68",
+            "nome": "Prédio Saúde 18",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 580,
+                "y": 1118
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Psicologia",
+                "Nutrição",
+                "Enfermagem"
+            ],
+            "agentes_ativos": 275,
+            "problemas_resolvidos": 10340,
+            "status": "online"
+        },
+        "bldg_69": {
+            "id": "bldg_69",
+            "nome": "Prédio Saúde 19",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 306,
+                "y": 1095
+            },
+            "andares": 20,
+            "nivel": 2,
+            "especialidades": [
+                "Medicina",
+                "Enfermagem",
+                "Fisioterapia"
+            ],
+            "agentes_ativos": 1287,
+            "problemas_resolvidos": 24732,
+            "status": "online"
+        },
+        "bldg_70": {
+            "id": "bldg_70",
+            "nome": "Prédio Saúde 20",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 276,
+                "y": 1202
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Nutrição",
+                "Odontologia",
+                "Medicina"
+            ],
+            "agentes_ativos": 1462,
+            "problemas_resolvidos": 15474,
+            "status": "online"
+        },
+        "bldg_71": {
+            "id": "bldg_71",
+            "nome": "Prédio Saúde 21",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 551,
+                "y": 1217
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Odontologia",
+                "Fisioterapia",
+                "Nutrição"
+            ],
+            "agentes_ativos": 1897,
+            "problemas_resolvidos": 22715,
+            "status": "online"
+        },
+        "bldg_72": {
+            "id": "bldg_72",
+            "nome": "Prédio Saúde 22",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 509,
+                "y": 1008
+            },
+            "andares": 11,
+            "nivel": 1,
+            "especialidades": [
+                "Fisioterapia",
+                "Nutrição",
+                "Medicina"
+            ],
+            "agentes_ativos": 1430,
+            "problemas_resolvidos": 10409,
+            "status": "online"
+        },
+        "bldg_73": {
+            "id": "bldg_73",
+            "nome": "Prédio Saúde 23",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 543,
+                "y": 1120
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Fisioterapia",
+                "Medicina",
+                "Psicologia"
+            ],
+            "agentes_ativos": 1553,
+            "problemas_resolvidos": 34525,
+            "status": "online"
+        },
+        "bldg_74": {
+            "id": "bldg_74",
+            "nome": "Prédio Saúde 24",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 192,
+                "y": 1122
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Odontologia",
+                "Medicina",
+                "Enfermagem"
+            ],
+            "agentes_ativos": 1408,
+            "problemas_resolvidos": 4053,
+            "status": "online"
+        },
+        "bldg_75": {
+            "id": "bldg_75",
+            "nome": "Prédio Saúde 25",
+            "bairro": "Saúde",
+            "cor": "#059669",
+            "cor_claro": "#05966944",
+            "posicao": {
+                "x": 451,
+                "y": 1044
+            },
+            "andares": 25,
+            "nivel": 2,
+            "especialidades": [
+                "Medicina",
+                "Odontologia",
+                "Nutrição"
+            ],
+            "agentes_ativos": 1010,
+            "problemas_resolvidos": 36784,
+            "status": "online"
+        },
+        "bldg_76": {
+            "id": "bldg_76",
+            "nome": "Prédio Direito 1",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1355,
+                "y": 1083
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Penal",
+                "Tributário",
+                "Ambiental"
+            ],
+            "agentes_ativos": 839,
+            "problemas_resolvidos": 35754,
+            "status": "online"
+        },
+        "bldg_77": {
+            "id": "bldg_77",
+            "nome": "Prédio Direito 2",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1323,
+                "y": 1241
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Ambiental",
+                "Trabalhista",
+                "Penal"
+            ],
+            "agentes_ativos": 280,
+            "problemas_resolvidos": 17099,
+            "status": "online"
+        },
+        "bldg_78": {
+            "id": "bldg_78",
+            "nome": "Prédio Direito 3",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1307,
+                "y": 1162
+            },
+            "andares": 37,
+            "nivel": 3,
+            "especialidades": [
+                "Civil",
+                "Trabalhista",
+                "Tributário"
+            ],
+            "agentes_ativos": 797,
+            "problemas_resolvidos": 34024,
+            "status": "online"
+        },
+        "bldg_79": {
+            "id": "bldg_79",
+            "nome": "Prédio Direito 4",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1046,
+                "y": 1039
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Tributário",
+                "Ambiental",
+                "Digital"
+            ],
+            "agentes_ativos": 1069,
+            "problemas_resolvidos": 16009,
+            "status": "online"
+        },
+        "bldg_80": {
+            "id": "bldg_80",
+            "nome": "Prédio Direito 5",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1337,
+                "y": 1128
+            },
+            "andares": 38,
+            "nivel": 3,
+            "especialidades": [
+                "Tributário",
+                "Trabalhista",
+                "Digital"
+            ],
+            "agentes_ativos": 1560,
+            "problemas_resolvidos": 35765,
+            "status": "online"
+        },
+        "bldg_81": {
+            "id": "bldg_81",
+            "nome": "Prédio Direito 6",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1276,
+                "y": 1272
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Trabalhista",
+                "Tributário"
+            ],
+            "agentes_ativos": 1675,
+            "problemas_resolvidos": 35624,
+            "status": "online"
+        },
+        "bldg_82": {
+            "id": "bldg_82",
+            "nome": "Prédio Direito 7",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1246,
+                "y": 1168
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Trabalhista",
+                "Civil",
+                "Ambiental"
+            ],
+            "agentes_ativos": 1864,
+            "problemas_resolvidos": 45409,
+            "status": "online"
+        },
+        "bldg_83": {
+            "id": "bldg_83",
+            "nome": "Prédio Direito 8",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1109,
+                "y": 1345
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Ambiental",
+                "Tributário",
+                "Civil"
+            ],
+            "agentes_ativos": 1211,
+            "problemas_resolvidos": 29935,
+            "status": "online"
+        },
+        "bldg_84": {
+            "id": "bldg_84",
+            "nome": "Prédio Direito 9",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1098,
+                "y": 1171
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Digital",
+                "Ambiental",
+                "Tributário"
+            ],
+            "agentes_ativos": 878,
+            "problemas_resolvidos": 23443,
+            "status": "online"
+        },
+        "bldg_85": {
+            "id": "bldg_85",
+            "nome": "Prédio Direito 10",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1284,
+                "y": 1078
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Trabalhista",
+                "Penal",
+                "Tributário"
+            ],
+            "agentes_ativos": 119,
+            "problemas_resolvidos": 20095,
+            "status": "online"
+        },
+        "bldg_86": {
+            "id": "bldg_86",
+            "nome": "Prédio Direito 11",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1202,
+                "y": 1088
+            },
+            "andares": 21,
+            "nivel": 2,
+            "especialidades": [
+                "Tributário",
+                "Penal",
+                "Trabalhista"
+            ],
+            "agentes_ativos": 1533,
+            "problemas_resolvidos": 12778,
+            "status": "online"
+        },
+        "bldg_87": {
+            "id": "bldg_87",
+            "nome": "Prédio Direito 12",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1066,
+                "y": 1118
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Tributário",
+                "Penal",
+                "Ambiental"
+            ],
+            "agentes_ativos": 963,
+            "problemas_resolvidos": 13698,
+            "status": "online"
+        },
+        "bldg_88": {
+            "id": "bldg_88",
+            "nome": "Prédio Direito 13",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1069,
+                "y": 1143
+            },
+            "andares": 25,
+            "nivel": 2,
+            "especialidades": [
+                "Digital",
+                "Trabalhista",
+                "Tributário"
+            ],
+            "agentes_ativos": 446,
+            "problemas_resolvidos": 41646,
+            "status": "online"
+        },
+        "bldg_89": {
+            "id": "bldg_89",
+            "nome": "Prédio Direito 14",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1049,
+                "y": 1199
+            },
+            "andares": 49,
+            "nivel": 3,
+            "especialidades": [
+                "Tributário",
+                "Penal",
+                "Ambiental"
+            ],
+            "agentes_ativos": 1588,
+            "problemas_resolvidos": 34039,
+            "status": "online"
+        },
+        "bldg_90": {
+            "id": "bldg_90",
+            "nome": "Prédio Direito 15",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1059,
+                "y": 1054
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Ambiental",
+                "Trabalhista",
+                "Penal"
+            ],
+            "agentes_ativos": 1066,
+            "problemas_resolvidos": 19547,
+            "status": "online"
+        },
+        "bldg_91": {
+            "id": "bldg_91",
+            "nome": "Prédio Direito 16",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1353,
+                "y": 1093
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Tributário",
+                "Digital",
+                "Trabalhista"
+            ],
+            "agentes_ativos": 285,
+            "problemas_resolvidos": 39179,
+            "status": "online"
+        },
+        "bldg_92": {
+            "id": "bldg_92",
+            "nome": "Prédio Direito 17",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1069,
+                "y": 1191
+            },
+            "andares": 21,
+            "nivel": 2,
+            "especialidades": [
+                "Ambiental",
+                "Penal",
+                "Trabalhista"
+            ],
+            "agentes_ativos": 1462,
+            "problemas_resolvidos": 43294,
+            "status": "online"
+        },
+        "bldg_93": {
+            "id": "bldg_93",
+            "nome": "Prédio Direito 18",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1101,
+                "y": 1319
+            },
+            "andares": 24,
+            "nivel": 2,
+            "especialidades": [
+                "Digital",
+                "Ambiental",
+                "Tributário"
+            ],
+            "agentes_ativos": 106,
+            "problemas_resolvidos": 47822,
+            "status": "online"
+        },
+        "bldg_94": {
+            "id": "bldg_94",
+            "nome": "Prédio Direito 19",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1307,
+                "y": 1094
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Digital",
+                "Ambiental"
+            ],
+            "agentes_ativos": 1202,
+            "problemas_resolvidos": 17153,
+            "status": "online"
+        },
+        "bldg_95": {
+            "id": "bldg_95",
+            "nome": "Prédio Direito 20",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1247,
+                "y": 1185
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Ambiental",
+                "Penal",
+                "Digital"
+            ],
+            "agentes_ativos": 1220,
+            "problemas_resolvidos": 38975,
+            "status": "online"
+        },
+        "bldg_96": {
+            "id": "bldg_96",
+            "nome": "Prédio Direito 21",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1095,
+                "y": 1166
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Penal",
+                "Trabalhista",
+                "Ambiental"
+            ],
+            "agentes_ativos": 785,
+            "problemas_resolvidos": 6335,
+            "status": "online"
+        },
+        "bldg_97": {
+            "id": "bldg_97",
+            "nome": "Prédio Direito 22",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1204,
+                "y": 1273
+            },
+            "andares": 48,
+            "nivel": 3,
+            "especialidades": [
+                "Ambiental",
+                "Trabalhista",
+                "Penal"
+            ],
+            "agentes_ativos": 550,
+            "problemas_resolvidos": 42403,
+            "status": "online"
+        },
+        "bldg_98": {
+            "id": "bldg_98",
+            "nome": "Prédio Direito 23",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1208,
+                "y": 1076
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Civil",
+                "Trabalhista",
+                "Penal"
+            ],
+            "agentes_ativos": 1377,
+            "problemas_resolvidos": 16152,
+            "status": "online"
+        },
+        "bldg_99": {
+            "id": "bldg_99",
+            "nome": "Prédio Direito 24",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1357,
+                "y": 1057
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Penal",
+                "Civil",
+                "Tributário"
+            ],
+            "agentes_ativos": 244,
+            "problemas_resolvidos": 42018,
+            "status": "online"
+        },
+        "bldg_100": {
+            "id": "bldg_100",
+            "nome": "Prédio Direito 25",
+            "bairro": "Direito",
+            "cor": "#7C3AED",
+            "cor_claro": "#7C3AED44",
+            "posicao": {
+                "x": 1297,
+                "y": 1119
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Tributário",
+                "Penal",
+                "Digital"
+            ],
+            "agentes_ativos": 1255,
+            "problemas_resolvidos": 30054,
+            "status": "online"
+        },
+        "bldg_101": {
+            "id": "bldg_101",
+            "nome": "Prédio Educação 1",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 653,
+                "y": 749
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Pedagogia",
+                "E-learning",
+                "História"
+            ],
+            "agentes_ativos": 1768,
+            "problemas_resolvidos": 27139,
+            "status": "online"
+        },
+        "bldg_102": {
+            "id": "bldg_102",
+            "nome": "Prédio Educação 2",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 894,
+                "y": 788
+            },
+            "andares": 33,
+            "nivel": 3,
+            "especialidades": [
+                "Artes",
+                "Pedagogia",
+                "Matemática"
+            ],
+            "agentes_ativos": 1999,
+            "problemas_resolvidos": 16552,
+            "status": "online"
+        },
+        "bldg_103": {
+            "id": "bldg_103",
+            "nome": "Prédio Educação 3",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 674,
+                "y": 706
+            },
+            "andares": 38,
+            "nivel": 3,
+            "especialidades": [
+                "História",
+                "Artes",
+                "E-learning"
+            ],
+            "agentes_ativos": 1167,
+            "problemas_resolvidos": 22252,
+            "status": "online"
+        },
+        "bldg_104": {
+            "id": "bldg_104",
+            "nome": "Prédio Educação 4",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 923,
+                "y": 661
+            },
+            "andares": 36,
+            "nivel": 3,
+            "especialidades": [
+                "Artes",
+                "Linguística",
+                "História"
+            ],
+            "agentes_ativos": 432,
+            "problemas_resolvidos": 49531,
+            "status": "online"
+        },
+        "bldg_105": {
+            "id": "bldg_105",
+            "nome": "Prédio Educação 5",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 902,
+                "y": 755
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Linguística",
+                "Matemática",
+                "Artes"
+            ],
+            "agentes_ativos": 1248,
+            "problemas_resolvidos": 27311,
+            "status": "online"
+        },
+        "bldg_106": {
+            "id": "bldg_106",
+            "nome": "Prédio Educação 6",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 706,
+                "y": 661
+            },
+            "andares": 29,
+            "nivel": 2,
+            "especialidades": [
+                "Matemática",
+                "Artes",
+                "História"
+            ],
+            "agentes_ativos": 308,
+            "problemas_resolvidos": 34322,
+            "status": "online"
+        },
+        "bldg_107": {
+            "id": "bldg_107",
+            "nome": "Prédio Educação 7",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 879,
+                "y": 896
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "E-learning",
+                "Artes",
+                "História"
+            ],
+            "agentes_ativos": 273,
+            "problemas_resolvidos": 43498,
+            "status": "online"
+        },
+        "bldg_108": {
+            "id": "bldg_108",
+            "nome": "Prédio Educação 8",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 790,
+                "y": 922
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "E-learning",
+                "História",
+                "Artes"
+            ],
+            "agentes_ativos": 1188,
+            "problemas_resolvidos": 2987,
+            "status": "online"
+        },
+        "bldg_109": {
+            "id": "bldg_109",
+            "nome": "Prédio Educação 9",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 705,
+                "y": 764
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Artes",
+                "Linguística",
+                "Pedagogia"
+            ],
+            "agentes_ativos": 632,
+            "problemas_resolvidos": 47281,
+            "status": "online"
+        },
+        "bldg_110": {
+            "id": "bldg_110",
+            "nome": "Prédio Educação 10",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 903,
+                "y": 731
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática",
+                "Pedagogia",
+                "Artes"
+            ],
+            "agentes_ativos": 1667,
+            "problemas_resolvidos": 1166,
+            "status": "online"
+        },
+        "bldg_111": {
+            "id": "bldg_111",
+            "nome": "Prédio Educação 11",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 912,
+                "y": 881
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática",
+                "Pedagogia",
+                "Artes"
+            ],
+            "agentes_ativos": 244,
+            "problemas_resolvidos": 49802,
+            "status": "online"
+        },
+        "bldg_112": {
+            "id": "bldg_112",
+            "nome": "Prédio Educação 12",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 785,
+                "y": 658
+            },
+            "andares": 48,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática",
+                "Linguística",
+                "Pedagogia"
+            ],
+            "agentes_ativos": 947,
+            "problemas_resolvidos": 7956,
+            "status": "online"
+        },
+        "bldg_113": {
+            "id": "bldg_113",
+            "nome": "Prédio Educação 13",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 810,
+                "y": 795
+            },
+            "andares": 13,
+            "nivel": 1,
+            "especialidades": [
+                "E-learning",
+                "Matemática",
+                "História"
+            ],
+            "agentes_ativos": 360,
+            "problemas_resolvidos": 7992,
+            "status": "online"
+        },
+        "bldg_114": {
+            "id": "bldg_114",
+            "nome": "Prédio Educação 14",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 729,
+                "y": 817
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Linguística",
+                "Matemática",
+                "História"
+            ],
+            "agentes_ativos": 1086,
+            "problemas_resolvidos": 23804,
+            "status": "online"
+        },
+        "bldg_115": {
+            "id": "bldg_115",
+            "nome": "Prédio Educação 15",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 803,
+                "y": 671
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Linguística",
+                "Matemática",
+                "E-learning"
+            ],
+            "agentes_ativos": 1267,
+            "problemas_resolvidos": 6015,
+            "status": "online"
+        },
+        "bldg_116": {
+            "id": "bldg_116",
+            "nome": "Prédio Educação 16",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 851,
+                "y": 734
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Linguística",
+                "História",
+                "Matemática"
+            ],
+            "agentes_ativos": 1718,
+            "problemas_resolvidos": 15731,
+            "status": "online"
+        },
+        "bldg_117": {
+            "id": "bldg_117",
+            "nome": "Prédio Educação 17",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 791,
+                "y": 752
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Pedagogia",
+                "Artes",
+                "Linguística"
+            ],
+            "agentes_ativos": 1935,
+            "problemas_resolvidos": 41100,
+            "status": "online"
+        },
+        "bldg_118": {
+            "id": "bldg_118",
+            "nome": "Prédio Educação 18",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 897,
+                "y": 892
+            },
+            "andares": 45,
+            "nivel": 3,
+            "especialidades": [
+                "História",
+                "Artes",
+                "Pedagogia"
+            ],
+            "agentes_ativos": 545,
+            "problemas_resolvidos": 28503,
+            "status": "online"
+        },
+        "bldg_119": {
+            "id": "bldg_119",
+            "nome": "Prédio Educação 19",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 664,
+                "y": 798
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Linguística",
+                "E-learning",
+                "História"
+            ],
+            "agentes_ativos": 1295,
+            "problemas_resolvidos": 11638,
+            "status": "online"
+        },
+        "bldg_120": {
+            "id": "bldg_120",
+            "nome": "Prédio Educação 20",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 703,
+                "y": 828
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Pedagogia",
+                "Artes",
+                "E-learning"
+            ],
+            "agentes_ativos": 470,
+            "problemas_resolvidos": 27452,
+            "status": "online"
+        },
+        "bldg_121": {
+            "id": "bldg_121",
+            "nome": "Prédio Educação 21",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 861,
+                "y": 936
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Linguística",
+                "E-learning",
+                "Pedagogia"
+            ],
+            "agentes_ativos": 1248,
+            "problemas_resolvidos": 16264,
+            "status": "online"
+        },
+        "bldg_122": {
+            "id": "bldg_122",
+            "nome": "Prédio Educação 22",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 834,
+                "y": 933
+            },
+            "andares": 47,
+            "nivel": 3,
+            "especialidades": [
+                "História",
+                "Matemática",
+                "Artes"
+            ],
+            "agentes_ativos": 441,
+            "problemas_resolvidos": 1605,
+            "status": "online"
+        },
+        "bldg_123": {
+            "id": "bldg_123",
+            "nome": "Prédio Educação 23",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 726,
+                "y": 874
+            },
+            "andares": 30,
+            "nivel": 3,
+            "especialidades": [
+                "E-learning",
+                "História",
+                "Linguística"
+            ],
+            "agentes_ativos": 1689,
+            "problemas_resolvidos": 16879,
+            "status": "online"
+        },
+        "bldg_124": {
+            "id": "bldg_124",
+            "nome": "Prédio Educação 24",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 752,
+                "y": 932
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "História",
+                "Linguística",
+                "E-learning"
+            ],
+            "agentes_ativos": 916,
+            "problemas_resolvidos": 23088,
+            "status": "online"
+        },
+        "bldg_125": {
+            "id": "bldg_125",
+            "nome": "Prédio Educação 25",
+            "bairro": "Educação",
+            "cor": "#D97706",
+            "cor_claro": "#D9770644",
+            "posicao": {
+                "x": 654,
+                "y": 716
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Pedagogia",
+                "Matemática",
+                "Artes"
+            ],
+            "agentes_ativos": 228,
+            "problemas_resolvidos": 35993,
+            "status": "online"
+        },
+        "bldg_126": {
+            "id": "bldg_126",
+            "nome": "Prédio Negócios 1",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1450,
+                "y": 922
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Vendas",
+                "Finanças",
+                "Marketing"
+            ],
+            "agentes_ativos": 509,
+            "problemas_resolvidos": 6549,
+            "status": "online"
+        },
+        "bldg_127": {
+            "id": "bldg_127",
+            "nome": "Prédio Negócios 2",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1557,
+                "y": 719
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Gestão",
+                "Marketing",
+                "Vendas"
+            ],
+            "agentes_ativos": 1716,
+            "problemas_resolvidos": 40280,
+            "status": "online"
+        },
+        "bldg_128": {
+            "id": "bldg_128",
+            "nome": "Prédio Negócios 3",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1494,
+                "y": 934
+            },
+            "andares": 32,
+            "nivel": 3,
+            "especialidades": [
+                "Vendas",
+                "Finanças",
+                "RH"
+            ],
+            "agentes_ativos": 1003,
+            "problemas_resolvidos": 49481,
+            "status": "online"
+        },
+        "bldg_129": {
+            "id": "bldg_129",
+            "nome": "Prédio Negócios 4",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1699,
+                "y": 947
+            },
+            "andares": 29,
+            "nivel": 2,
+            "especialidades": [
+                "Vendas",
+                "RH",
+                "Finanças"
+            ],
+            "agentes_ativos": 583,
+            "problemas_resolvidos": 35386,
+            "status": "online"
+        },
+        "bldg_130": {
+            "id": "bldg_130",
+            "nome": "Prédio Negócios 5",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1521,
+                "y": 911
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Marketing",
+                "RH",
+                "Gestão"
+            ],
+            "agentes_ativos": 221,
+            "problemas_resolvidos": 29856,
+            "status": "online"
+        },
+        "bldg_131": {
+            "id": "bldg_131",
+            "nome": "Prédio Negócios 6",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1641,
+                "y": 695
+            },
+            "andares": 16,
+            "nivel": 2,
+            "especialidades": [
+                "Gestão",
+                "Vendas",
+                "RH"
+            ],
+            "agentes_ativos": 1633,
+            "problemas_resolvidos": 39088,
+            "status": "online"
+        },
+        "bldg_132": {
+            "id": "bldg_132",
+            "nome": "Prédio Negócios 7",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1614,
+                "y": 796
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Estratégia",
+                "Gestão",
+                "RH"
+            ],
+            "agentes_ativos": 163,
+            "problemas_resolvidos": 7432,
+            "status": "online"
+        },
+        "bldg_133": {
+            "id": "bldg_133",
+            "nome": "Prédio Negócios 8",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1748,
+                "y": 895
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "Finanças",
+                "RH",
+                "Estratégia"
+            ],
+            "agentes_ativos": 848,
+            "problemas_resolvidos": 42780,
+            "status": "online"
+        },
+        "bldg_134": {
+            "id": "bldg_134",
+            "nome": "Prédio Negócios 9",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1678,
+                "y": 752
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Estratégia",
+                "RH",
+                "Gestão"
+            ],
+            "agentes_ativos": 1833,
+            "problemas_resolvidos": 49351,
+            "status": "online"
+        },
+        "bldg_135": {
+            "id": "bldg_135",
+            "nome": "Prédio Negócios 10",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1775,
+                "y": 658
+            },
+            "andares": 24,
+            "nivel": 2,
+            "especialidades": [
+                "Gestão",
+                "RH",
+                "Estratégia"
+            ],
+            "agentes_ativos": 1029,
+            "problemas_resolvidos": 12978,
+            "status": "online"
+        },
+        "bldg_136": {
+            "id": "bldg_136",
+            "nome": "Prédio Negócios 11",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1612,
+                "y": 834
+            },
+            "andares": 28,
+            "nivel": 2,
+            "especialidades": [
+                "Marketing",
+                "Vendas",
+                "Estratégia"
+            ],
+            "agentes_ativos": 1859,
+            "problemas_resolvidos": 8821,
+            "status": "online"
+        },
+        "bldg_137": {
+            "id": "bldg_137",
+            "nome": "Prédio Negócios 12",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1772,
+                "y": 695
+            },
+            "andares": 49,
+            "nivel": 3,
+            "especialidades": [
+                "Vendas",
+                "Estratégia",
+                "Finanças"
+            ],
+            "agentes_ativos": 991,
+            "problemas_resolvidos": 35853,
+            "status": "online"
+        },
+        "bldg_138": {
+            "id": "bldg_138",
+            "nome": "Prédio Negócios 13",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1763,
+                "y": 948
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Finanças",
+                "RH",
+                "Gestão"
+            ],
+            "agentes_ativos": 1138,
+            "problemas_resolvidos": 27391,
+            "status": "online"
+        },
+        "bldg_139": {
+            "id": "bldg_139",
+            "nome": "Prédio Negócios 14",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1585,
+                "y": 816
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Finanças",
+                "Vendas",
+                "Gestão"
+            ],
+            "agentes_ativos": 584,
+            "problemas_resolvidos": 15144,
+            "status": "online"
+        },
+        "bldg_140": {
+            "id": "bldg_140",
+            "nome": "Prédio Negócios 15",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1666,
+                "y": 701
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Marketing",
+                "Vendas",
+                "Gestão"
+            ],
+            "agentes_ativos": 1694,
+            "problemas_resolvidos": 25072,
+            "status": "online"
+        },
+        "bldg_141": {
+            "id": "bldg_141",
+            "nome": "Prédio Negócios 16",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1561,
+                "y": 779
+            },
+            "andares": 46,
+            "nivel": 3,
+            "especialidades": [
+                "Marketing",
+                "Vendas",
+                "Finanças"
+            ],
+            "agentes_ativos": 1632,
+            "problemas_resolvidos": 21179,
+            "status": "online"
+        },
+        "bldg_142": {
+            "id": "bldg_142",
+            "nome": "Prédio Negócios 17",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1492,
+                "y": 775
+            },
+            "andares": 41,
+            "nivel": 3,
+            "especialidades": [
+                "Gestão",
+                "Vendas",
+                "Finanças"
+            ],
+            "agentes_ativos": 1297,
+            "problemas_resolvidos": 31064,
+            "status": "online"
+        },
+        "bldg_143": {
+            "id": "bldg_143",
+            "nome": "Prédio Negócios 18",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1699,
+                "y": 838
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Finanças",
+                "Gestão",
+                "Vendas"
+            ],
+            "agentes_ativos": 289,
+            "problemas_resolvidos": 35480,
+            "status": "online"
+        },
+        "bldg_144": {
+            "id": "bldg_144",
+            "nome": "Prédio Negócios 19",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1503,
+                "y": 770
+            },
+            "andares": 25,
+            "nivel": 2,
+            "especialidades": [
+                "Marketing",
+                "Finanças",
+                "RH"
+            ],
+            "agentes_ativos": 194,
+            "problemas_resolvidos": 44438,
+            "status": "online"
+        },
+        "bldg_145": {
+            "id": "bldg_145",
+            "nome": "Prédio Negócios 20",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1450,
+                "y": 668
+            },
+            "andares": 45,
+            "nivel": 3,
+            "especialidades": [
+                "RH",
+                "Estratégia",
+                "Gestão"
+            ],
+            "agentes_ativos": 1324,
+            "problemas_resolvidos": 3084,
+            "status": "online"
+        },
+        "bldg_146": {
+            "id": "bldg_146",
+            "nome": "Prédio Negócios 21",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1630,
+                "y": 749
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Gestão",
+                "RH",
+                "Estratégia"
+            ],
+            "agentes_ativos": 1455,
+            "problemas_resolvidos": 34608,
+            "status": "online"
+        },
+        "bldg_147": {
+            "id": "bldg_147",
+            "nome": "Prédio Negócios 22",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1536,
+                "y": 655
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Marketing",
+                "Finanças",
+                "Estratégia"
+            ],
+            "agentes_ativos": 994,
+            "problemas_resolvidos": 39665,
+            "status": "online"
+        },
+        "bldg_148": {
+            "id": "bldg_148",
+            "nome": "Prédio Negócios 23",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1443,
+                "y": 828
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "RH",
+                "Vendas",
+                "Finanças"
+            ],
+            "agentes_ativos": 1622,
+            "problemas_resolvidos": 41395,
+            "status": "online"
+        },
+        "bldg_149": {
+            "id": "bldg_149",
+            "nome": "Prédio Negócios 24",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1430,
+                "y": 681
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Gestão",
+                "RH",
+                "Finanças"
+            ],
+            "agentes_ativos": 1966,
+            "problemas_resolvidos": 15863,
+            "status": "online"
+        },
+        "bldg_150": {
+            "id": "bldg_150",
+            "nome": "Prédio Negócios 25",
+            "bairro": "Negócios",
+            "cor": "#0891B2",
+            "cor_claro": "#0891B244",
+            "posicao": {
+                "x": 1742,
+                "y": 939
+            },
+            "andares": 36,
+            "nivel": 3,
+            "especialidades": [
+                "Vendas",
+                "RH",
+                "Gestão"
+            ],
+            "agentes_ativos": 580,
+            "problemas_resolvidos": 7842,
+            "status": "online"
+        },
+        "bldg_151": {
+            "id": "bldg_151",
+            "nome": "Prédio Construção 1",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 344,
+                "y": 1729
+            },
+            "andares": 47,
+            "nivel": 3,
+            "especialidades": [
+                "Urbanismo",
+                "Hidráulica",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 1618,
+            "problemas_resolvidos": 3152,
+            "status": "online"
+        },
+        "bldg_152": {
+            "id": "bldg_152",
+            "nome": "Prédio Construção 2",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 533,
+                "y": 1862
+            },
+            "andares": 20,
+            "nivel": 2,
+            "especialidades": [
+                "Arquitetura",
+                "Hidráulica",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 1864,
+            "problemas_resolvidos": 15653,
+            "status": "online"
+        },
+        "bldg_153": {
+            "id": "bldg_153",
+            "nome": "Prédio Construção 3",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 299,
+                "y": 1949
+            },
+            "andares": 28,
+            "nivel": 2,
+            "especialidades": [
+                "Elétrica Predial",
+                "Hidráulica",
+                "Estruturas"
+            ],
+            "agentes_ativos": 906,
+            "problemas_resolvidos": 18562,
+            "status": "online"
+        },
+        "bldg_154": {
+            "id": "bldg_154",
+            "nome": "Prédio Construção 4",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 377,
+                "y": 1820
+            },
+            "andares": 36,
+            "nivel": 3,
+            "especialidades": [
+                "Arquitetura",
+                "Urbanismo",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 338,
+            "problemas_resolvidos": 13450,
+            "status": "online"
+        },
+        "bldg_155": {
+            "id": "bldg_155",
+            "nome": "Prédio Construção 5",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 542,
+                "y": 1855
+            },
+            "andares": 35,
+            "nivel": 3,
+            "especialidades": [
+                "Urbanismo",
+                "Hidráulica",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1005,
+            "problemas_resolvidos": 46605,
+            "status": "online"
+        },
+        "bldg_156": {
+            "id": "bldg_156",
+            "nome": "Prédio Construção 6",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 466,
+                "y": 1743
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Urbanismo",
+                "Elétrica Predial",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1615,
+            "problemas_resolvidos": 5127,
+            "status": "online"
+        },
+        "bldg_157": {
+            "id": "bldg_157",
+            "nome": "Prédio Construção 7",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 272,
+                "y": 1716
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Arquitetura",
+                "Estruturas",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 849,
+            "problemas_resolvidos": 38587,
+            "status": "online"
+        },
+        "bldg_158": {
+            "id": "bldg_158",
+            "nome": "Prédio Construção 8",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 349,
+                "y": 1748
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Arquitetura",
+                "Hidráulica",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 428,
+            "problemas_resolvidos": 14411,
+            "status": "online"
+        },
+        "bldg_159": {
+            "id": "bldg_159",
+            "nome": "Prédio Construção 9",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 421,
+                "y": 1942
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Arquitetura",
+                "Urbanismo",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 654,
+            "problemas_resolvidos": 10409,
+            "status": "online"
+        },
+        "bldg_160": {
+            "id": "bldg_160",
+            "nome": "Prédio Construção 10",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 301,
+                "y": 1687
+            },
+            "andares": 32,
+            "nivel": 3,
+            "especialidades": [
+                "Estruturas",
+                "Urbanismo",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1858,
+            "problemas_resolvidos": 43838,
+            "status": "online"
+        },
+        "bldg_161": {
+            "id": "bldg_161",
+            "nome": "Prédio Construção 11",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 269,
+                "y": 1933
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Hidráulica",
+                "Arquitetura",
+                "Estruturas"
+            ],
+            "agentes_ativos": 940,
+            "problemas_resolvidos": 39732,
+            "status": "online"
+        },
+        "bldg_162": {
+            "id": "bldg_162",
+            "nome": "Prédio Construção 12",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 407,
+                "y": 1923
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Hidráulica",
+                "Urbanismo",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1555,
+            "problemas_resolvidos": 25883,
+            "status": "online"
+        },
+        "bldg_163": {
+            "id": "bldg_163",
+            "nome": "Prédio Construção 13",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 331,
+                "y": 1785
+            },
+            "andares": 8,
+            "nivel": 1,
+            "especialidades": [
+                "Urbanismo",
+                "Estruturas",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 611,
+            "problemas_resolvidos": 43847,
+            "status": "online"
+        },
+        "bldg_164": {
+            "id": "bldg_164",
+            "nome": "Prédio Construção 14",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 408,
+                "y": 1888
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Arquitetura",
+                "Elétrica Predial",
+                "Estruturas"
+            ],
+            "agentes_ativos": 483,
+            "problemas_resolvidos": 28754,
+            "status": "online"
+        },
+        "bldg_165": {
+            "id": "bldg_165",
+            "nome": "Prédio Construção 15",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 285,
+                "y": 1857
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Elétrica Predial",
+                "Arquitetura",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 924,
+            "problemas_resolvidos": 46683,
+            "status": "online"
+        },
+        "bldg_166": {
+            "id": "bldg_166",
+            "nome": "Prédio Construção 16",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 374,
+                "y": 1793
+            },
+            "andares": 8,
+            "nivel": 1,
+            "especialidades": [
+                "Estruturas",
+                "Urbanismo",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 739,
+            "problemas_resolvidos": 49783,
+            "status": "online"
+        },
+        "bldg_167": {
+            "id": "bldg_167",
+            "nome": "Prédio Construção 17",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 474,
+                "y": 1935
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Elétrica Predial",
+                "Estruturas",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 1659,
+            "problemas_resolvidos": 4208,
+            "status": "online"
+        },
+        "bldg_168": {
+            "id": "bldg_168",
+            "nome": "Prédio Construção 18",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 495,
+                "y": 1756
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Urbanismo",
+                "Hidráulica",
+                "Estruturas"
+            ],
+            "agentes_ativos": 406,
+            "problemas_resolvidos": 49644,
+            "status": "online"
+        },
+        "bldg_169": {
+            "id": "bldg_169",
+            "nome": "Prédio Construção 19",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 535,
+                "y": 1829
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Urbanismo",
+                "Elétrica Predial",
+                "Hidráulica"
+            ],
+            "agentes_ativos": 1158,
+            "problemas_resolvidos": 33066,
+            "status": "online"
+        },
+        "bldg_170": {
+            "id": "bldg_170",
+            "nome": "Prédio Construção 20",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 481,
+                "y": 1818
+            },
+            "andares": 35,
+            "nivel": 3,
+            "especialidades": [
+                "Elétrica Predial",
+                "Urbanismo",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1609,
+            "problemas_resolvidos": 14456,
+            "status": "online"
+        },
+        "bldg_171": {
+            "id": "bldg_171",
+            "nome": "Prédio Construção 21",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 473,
+                "y": 1751
+            },
+            "andares": 45,
+            "nivel": 3,
+            "especialidades": [
+                "Arquitetura",
+                "Elétrica Predial",
+                "Estruturas"
+            ],
+            "agentes_ativos": 1090,
+            "problemas_resolvidos": 33683,
+            "status": "online"
+        },
+        "bldg_172": {
+            "id": "bldg_172",
+            "nome": "Prédio Construção 22",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 280,
+                "y": 1703
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Hidráulica",
+                "Elétrica Predial",
+                "Arquitetura"
+            ],
+            "agentes_ativos": 1140,
+            "problemas_resolvidos": 36701,
+            "status": "online"
+        },
+        "bldg_173": {
+            "id": "bldg_173",
+            "nome": "Prédio Construção 23",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 511,
+                "y": 1651
+            },
+            "andares": 30,
+            "nivel": 3,
+            "especialidades": [
+                "Estruturas",
+                "Urbanismo",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 1439,
+            "problemas_resolvidos": 7940,
+            "status": "online"
+        },
+        "bldg_174": {
+            "id": "bldg_174",
+            "nome": "Prédio Construção 24",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 409,
+                "y": 1821
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "Hidráulica",
+                "Arquitetura",
+                "Estruturas"
+            ],
+            "agentes_ativos": 330,
+            "problemas_resolvidos": 11230,
+            "status": "online"
+        },
+        "bldg_175": {
+            "id": "bldg_175",
+            "nome": "Prédio Construção 25",
+            "bairro": "Construção",
+            "cor": "#92400E",
+            "cor_claro": "#92400E44",
+            "posicao": {
+                "x": 539,
+                "y": 1826
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Hidráulica",
+                "Urbanismo",
+                "Elétrica Predial"
+            ],
+            "agentes_ativos": 301,
+            "problemas_resolvidos": 32800,
+            "status": "online"
+        },
+        "bldg_176": {
+            "id": "bldg_176",
+            "nome": "Prédio Agro 1",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1253,
+                "y": 1636
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Agronomia",
+                "Agtech",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 879,
+            "problemas_resolvidos": 17760,
+            "status": "online"
+        },
+        "bldg_177": {
+            "id": "bldg_177",
+            "nome": "Prédio Agro 2",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1122,
+                "y": 1761
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Zootecnia",
+                "Sustentabilidade",
+                "Agtech"
+            ],
+            "agentes_ativos": 1977,
+            "problemas_resolvidos": 31728,
+            "status": "online"
+        },
+        "bldg_178": {
+            "id": "bldg_178",
+            "nome": "Prédio Agro 3",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1065,
+                "y": 1644
+            },
+            "andares": 21,
+            "nivel": 2,
+            "especialidades": [
+                "Agronomia",
+                "Agtech",
+                "Sustentabilidade"
+            ],
+            "agentes_ativos": 301,
+            "problemas_resolvidos": 26868,
+            "status": "online"
+        },
+        "bldg_179": {
+            "id": "bldg_179",
+            "nome": "Prédio Agro 4",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1259,
+                "y": 1879
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Sustentabilidade",
+                "Veterinária",
+                "Agtech"
+            ],
+            "agentes_ativos": 1113,
+            "problemas_resolvidos": 39901,
+            "status": "online"
+        },
+        "bldg_180": {
+            "id": "bldg_180",
+            "nome": "Prédio Agro 5",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1265,
+                "y": 1649
+            },
+            "andares": 9,
+            "nivel": 1,
+            "especialidades": [
+                "Sustentabilidade",
+                "Agtech",
+                "Veterinária"
+            ],
+            "agentes_ativos": 1984,
+            "problemas_resolvidos": 7329,
+            "status": "online"
+        },
+        "bldg_181": {
+            "id": "bldg_181",
+            "nome": "Prédio Agro 6",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1301,
+                "y": 1766
+            },
+            "andares": 18,
+            "nivel": 2,
+            "especialidades": [
+                "Zootecnia",
+                "Veterinária",
+                "Agronomia"
+            ],
+            "agentes_ativos": 553,
+            "problemas_resolvidos": 15853,
+            "status": "online"
+        },
+        "bldg_182": {
+            "id": "bldg_182",
+            "nome": "Prédio Agro 7",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1097,
+                "y": 1845
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Agtech",
+                "Sustentabilidade",
+                "Veterinária"
+            ],
+            "agentes_ativos": 1179,
+            "problemas_resolvidos": 19961,
+            "status": "online"
+        },
+        "bldg_183": {
+            "id": "bldg_183",
+            "nome": "Prédio Agro 8",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1205,
+                "y": 1878
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Veterinária",
+                "Zootecnia",
+                "Agronomia"
+            ],
+            "agentes_ativos": 1374,
+            "problemas_resolvidos": 24337,
+            "status": "online"
+        },
+        "bldg_184": {
+            "id": "bldg_184",
+            "nome": "Prédio Agro 9",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1156,
+                "y": 1875
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Veterinária",
+                "Agronomia",
+                "Agtech"
+            ],
+            "agentes_ativos": 1033,
+            "problemas_resolvidos": 44191,
+            "status": "online"
+        },
+        "bldg_185": {
+            "id": "bldg_185",
+            "nome": "Prédio Agro 10",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1127,
+                "y": 1917
+            },
+            "andares": 50,
+            "nivel": 3,
+            "especialidades": [
+                "Agtech",
+                "Agronomia",
+                "Sustentabilidade"
+            ],
+            "agentes_ativos": 1925,
+            "problemas_resolvidos": 19181,
+            "status": "online"
+        },
+        "bldg_186": {
+            "id": "bldg_186",
+            "nome": "Prédio Agro 11",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1070,
+                "y": 1658
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Sustentabilidade",
+                "Agronomia",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1780,
+            "problemas_resolvidos": 33110,
+            "status": "online"
+        },
+        "bldg_187": {
+            "id": "bldg_187",
+            "nome": "Prédio Agro 12",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1351,
+                "y": 1918
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Sustentabilidade",
+                "Agtech",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1995,
+            "problemas_resolvidos": 42397,
+            "status": "online"
+        },
+        "bldg_188": {
+            "id": "bldg_188",
+            "nome": "Prédio Agro 13",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1205,
+                "y": 1831
+            },
+            "andares": 15,
+            "nivel": 2,
+            "especialidades": [
+                "Veterinária",
+                "Agtech",
+                "Agronomia"
+            ],
+            "agentes_ativos": 1277,
+            "problemas_resolvidos": 19079,
+            "status": "online"
+        },
+        "bldg_189": {
+            "id": "bldg_189",
+            "nome": "Prédio Agro 14",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1205,
+                "y": 1911
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Veterinária",
+                "Agtech",
+                "Agronomia"
+            ],
+            "agentes_ativos": 1166,
+            "problemas_resolvidos": 31164,
+            "status": "online"
+        },
+        "bldg_190": {
+            "id": "bldg_190",
+            "nome": "Prédio Agro 15",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1102,
+                "y": 1835
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Veterinária",
+                "Agronomia",
+                "Agtech"
+            ],
+            "agentes_ativos": 723,
+            "problemas_resolvidos": 5027,
+            "status": "online"
+        },
+        "bldg_191": {
+            "id": "bldg_191",
+            "nome": "Prédio Agro 16",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1234,
+                "y": 1767
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Veterinária",
+                "Agtech",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1809,
+            "problemas_resolvidos": 44669,
+            "status": "online"
+        },
+        "bldg_192": {
+            "id": "bldg_192",
+            "nome": "Prédio Agro 17",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1108,
+                "y": 1935
+            },
+            "andares": 13,
+            "nivel": 1,
+            "especialidades": [
+                "Sustentabilidade",
+                "Veterinária",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 237,
+            "problemas_resolvidos": 35724,
+            "status": "online"
+        },
+        "bldg_193": {
+            "id": "bldg_193",
+            "nome": "Prédio Agro 18",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1206,
+                "y": 1704
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Agtech",
+                "Sustentabilidade",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1879,
+            "problemas_resolvidos": 42793,
+            "status": "online"
+        },
+        "bldg_194": {
+            "id": "bldg_194",
+            "nome": "Prédio Agro 19",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1059,
+                "y": 1708
+            },
+            "andares": 13,
+            "nivel": 1,
+            "especialidades": [
+                "Agtech",
+                "Zootecnia",
+                "Sustentabilidade"
+            ],
+            "agentes_ativos": 1915,
+            "problemas_resolvidos": 42258,
+            "status": "online"
+        },
+        "bldg_195": {
+            "id": "bldg_195",
+            "nome": "Prédio Agro 20",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1359,
+                "y": 1775
+            },
+            "andares": 31,
+            "nivel": 3,
+            "especialidades": [
+                "Agronomia",
+                "Agtech",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1767,
+            "problemas_resolvidos": 9684,
+            "status": "online"
+        },
+        "bldg_196": {
+            "id": "bldg_196",
+            "nome": "Prédio Agro 21",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1138,
+                "y": 1874
+            },
+            "andares": 32,
+            "nivel": 3,
+            "especialidades": [
+                "Veterinária",
+                "Zootecnia",
+                "Agronomia"
+            ],
+            "agentes_ativos": 762,
+            "problemas_resolvidos": 26781,
+            "status": "online"
+        },
+        "bldg_197": {
+            "id": "bldg_197",
+            "nome": "Prédio Agro 22",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1137,
+                "y": 1823
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Sustentabilidade",
+                "Veterinária",
+                "Zootecnia"
+            ],
+            "agentes_ativos": 1409,
+            "problemas_resolvidos": 26985,
+            "status": "online"
+        },
+        "bldg_198": {
+            "id": "bldg_198",
+            "nome": "Prédio Agro 23",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1029,
+                "y": 1753
+            },
+            "andares": 36,
+            "nivel": 3,
+            "especialidades": [
+                "Agtech",
+                "Veterinária",
+                "Sustentabilidade"
+            ],
+            "agentes_ativos": 529,
+            "problemas_resolvidos": 10555,
+            "status": "online"
+        },
+        "bldg_199": {
+            "id": "bldg_199",
+            "nome": "Prédio Agro 24",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1162,
+                "y": 1813
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Veterinária",
+                "Zootecnia",
+                "Sustentabilidade"
+            ],
+            "agentes_ativos": 1657,
+            "problemas_resolvidos": 2326,
+            "status": "online"
+        },
+        "bldg_200": {
+            "id": "bldg_200",
+            "nome": "Prédio Agro 25",
+            "bairro": "Agro",
+            "cor": "#4D7C0F",
+            "cor_claro": "#4D7C0F44",
+            "posicao": {
+                "x": 1324,
+                "y": 1899
+            },
+            "andares": 48,
+            "nivel": 3,
+            "especialidades": [
+                "Veterinária",
+                "Sustentabilidade",
+                "Agronomia"
+            ],
+            "agentes_ativos": 841,
+            "problemas_resolvidos": 5606,
+            "status": "online"
+        },
+        "bldg_201": {
+            "id": "bldg_201",
+            "nome": "Prédio Arte 1",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1790,
+                "y": 1308
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Cinema",
+                "Literatura",
+                "Design"
+            ],
+            "agentes_ativos": 980,
+            "problemas_resolvidos": 25709,
+            "status": "online"
+        },
+        "bldg_202": {
+            "id": "bldg_202",
+            "nome": "Prédio Arte 2",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1915,
+                "y": 1343
+            },
+            "andares": 22,
+            "nivel": 2,
+            "especialidades": [
+                "Teatro",
+                "Cinema",
+                "Design"
+            ],
+            "agentes_ativos": 1264,
+            "problemas_resolvidos": 46728,
+            "status": "online"
+        },
+        "bldg_203": {
+            "id": "bldg_203",
+            "nome": "Prédio Arte 3",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1895,
+                "y": 1475
+            },
+            "andares": 17,
+            "nivel": 2,
+            "especialidades": [
+                "Design",
+                "Artes Visuais",
+                "Teatro"
+            ],
+            "agentes_ativos": 177,
+            "problemas_resolvidos": 27007,
+            "status": "online"
+        },
+        "bldg_204": {
+            "id": "bldg_204",
+            "nome": "Prédio Arte 4",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1732,
+                "y": 1464
+            },
+            "andares": 28,
+            "nivel": 2,
+            "especialidades": [
+                "Cinema",
+                "Música",
+                "Design"
+            ],
+            "agentes_ativos": 512,
+            "problemas_resolvidos": 47960,
+            "status": "online"
+        },
+        "bldg_205": {
+            "id": "bldg_205",
+            "nome": "Prédio Arte 5",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1667,
+                "y": 1554
+            },
+            "andares": 21,
+            "nivel": 2,
+            "especialidades": [
+                "Artes Visuais",
+                "Música",
+                "Literatura"
+            ],
+            "agentes_ativos": 1230,
+            "problemas_resolvidos": 46492,
+            "status": "online"
+        },
+        "bldg_206": {
+            "id": "bldg_206",
+            "nome": "Prédio Arte 6",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1877,
+                "y": 1299
+            },
+            "andares": 7,
+            "nivel": 1,
+            "especialidades": [
+                "Cinema",
+                "Literatura",
+                "Artes Visuais"
+            ],
+            "agentes_ativos": 1279,
+            "problemas_resolvidos": 8651,
+            "status": "online"
+        },
+        "bldg_207": {
+            "id": "bldg_207",
+            "nome": "Prédio Arte 7",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1933,
+                "y": 1298
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Música",
+                "Teatro",
+                "Cinema"
+            ],
+            "agentes_ativos": 572,
+            "problemas_resolvidos": 46869,
+            "status": "online"
+        },
+        "bldg_208": {
+            "id": "bldg_208",
+            "nome": "Prédio Arte 8",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1756,
+                "y": 1447
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Teatro",
+                "Música",
+                "Literatura"
+            ],
+            "agentes_ativos": 1399,
+            "problemas_resolvidos": 15451,
+            "status": "online"
+        },
+        "bldg_209": {
+            "id": "bldg_209",
+            "nome": "Prédio Arte 9",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1661,
+                "y": 1329
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Música",
+                "Teatro",
+                "Artes Visuais"
+            ],
+            "agentes_ativos": 478,
+            "problemas_resolvidos": 14671,
+            "status": "online"
+        },
+        "bldg_210": {
+            "id": "bldg_210",
+            "nome": "Prédio Arte 10",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1940,
+                "y": 1341
+            },
+            "andares": 16,
+            "nivel": 2,
+            "especialidades": [
+                "Design",
+                "Artes Visuais",
+                "Teatro"
+            ],
+            "agentes_ativos": 354,
+            "problemas_resolvidos": 48089,
+            "status": "online"
+        },
+        "bldg_211": {
+            "id": "bldg_211",
+            "nome": "Prédio Arte 11",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1835,
+                "y": 1434
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Artes Visuais",
+                "Literatura",
+                "Música"
+            ],
+            "agentes_ativos": 992,
+            "problemas_resolvidos": 33498,
+            "status": "online"
+        },
+        "bldg_212": {
+            "id": "bldg_212",
+            "nome": "Prédio Arte 12",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1847,
+                "y": 1515
+            },
+            "andares": 45,
+            "nivel": 3,
+            "especialidades": [
+                "Teatro",
+                "Design",
+                "Literatura"
+            ],
+            "agentes_ativos": 1668,
+            "problemas_resolvidos": 6136,
+            "status": "online"
+        },
+        "bldg_213": {
+            "id": "bldg_213",
+            "nome": "Prédio Arte 13",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1945,
+                "y": 1420
+            },
+            "andares": 26,
+            "nivel": 2,
+            "especialidades": [
+                "Teatro",
+                "Cinema",
+                "Música"
+            ],
+            "agentes_ativos": 1617,
+            "problemas_resolvidos": 8670,
+            "status": "online"
+        },
+        "bldg_214": {
+            "id": "bldg_214",
+            "nome": "Prédio Arte 14",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1687,
+                "y": 1251
+            },
+            "andares": 16,
+            "nivel": 2,
+            "especialidades": [
+                "Cinema",
+                "Design",
+                "Literatura"
+            ],
+            "agentes_ativos": 1462,
+            "problemas_resolvidos": 7708,
+            "status": "online"
+        },
+        "bldg_215": {
+            "id": "bldg_215",
+            "nome": "Prédio Arte 15",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1693,
+                "y": 1243
+            },
+            "andares": 48,
+            "nivel": 3,
+            "especialidades": [
+                "Literatura",
+                "Teatro",
+                "Música"
+            ],
+            "agentes_ativos": 1982,
+            "problemas_resolvidos": 23148,
+            "status": "online"
+        },
+        "bldg_216": {
+            "id": "bldg_216",
+            "nome": "Prédio Arte 16",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1821,
+                "y": 1517
+            },
+            "andares": 33,
+            "nivel": 3,
+            "especialidades": [
+                "Literatura",
+                "Cinema",
+                "Artes Visuais"
+            ],
+            "agentes_ativos": 1858,
+            "problemas_resolvidos": 8188,
+            "status": "online"
+        },
+        "bldg_217": {
+            "id": "bldg_217",
+            "nome": "Prédio Arte 17",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1722,
+                "y": 1473
+            },
+            "andares": 19,
+            "nivel": 2,
+            "especialidades": [
+                "Artes Visuais",
+                "Música",
+                "Teatro"
+            ],
+            "agentes_ativos": 1086,
+            "problemas_resolvidos": 45802,
+            "status": "online"
+        },
+        "bldg_218": {
+            "id": "bldg_218",
+            "nome": "Prédio Arte 18",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1771,
+                "y": 1457
+            },
+            "andares": 10,
+            "nivel": 1,
+            "especialidades": [
+                "Artes Visuais",
+                "Música",
+                "Teatro"
+            ],
+            "agentes_ativos": 866,
+            "problemas_resolvidos": 17989,
+            "status": "online"
+        },
+        "bldg_219": {
+            "id": "bldg_219",
+            "nome": "Prédio Arte 19",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1731,
+                "y": 1302
+            },
+            "andares": 29,
+            "nivel": 2,
+            "especialidades": [
+                "Design",
+                "Artes Visuais",
+                "Cinema"
+            ],
+            "agentes_ativos": 720,
+            "problemas_resolvidos": 37407,
+            "status": "online"
+        },
+        "bldg_220": {
+            "id": "bldg_220",
+            "nome": "Prédio Arte 20",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1709,
+                "y": 1392
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Artes Visuais",
+                "Teatro",
+                "Cinema"
+            ],
+            "agentes_ativos": 1664,
+            "problemas_resolvidos": 30963,
+            "status": "online"
+        },
+        "bldg_221": {
+            "id": "bldg_221",
+            "nome": "Prédio Arte 21",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1653,
+                "y": 1436
+            },
+            "andares": 35,
+            "nivel": 3,
+            "especialidades": [
+                "Cinema",
+                "Literatura",
+                "Artes Visuais"
+            ],
+            "agentes_ativos": 1477,
+            "problemas_resolvidos": 13349,
+            "status": "online"
+        },
+        "bldg_222": {
+            "id": "bldg_222",
+            "nome": "Prédio Arte 22",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1888,
+                "y": 1327
+            },
+            "andares": 41,
+            "nivel": 3,
+            "especialidades": [
+                "Cinema",
+                "Literatura",
+                "Artes Visuais"
+            ],
+            "agentes_ativos": 592,
+            "problemas_resolvidos": 20220,
+            "status": "online"
+        },
+        "bldg_223": {
+            "id": "bldg_223",
+            "nome": "Prédio Arte 23",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1684,
+                "y": 1429
+            },
+            "andares": 32,
+            "nivel": 3,
+            "especialidades": [
+                "Literatura",
+                "Artes Visuais",
+                "Música"
+            ],
+            "agentes_ativos": 397,
+            "problemas_resolvidos": 39372,
+            "status": "online"
+        },
+        "bldg_224": {
+            "id": "bldg_224",
+            "nome": "Prédio Arte 24",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1870,
+                "y": 1349
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Música",
+                "Artes Visuais",
+                "Cinema"
+            ],
+            "agentes_ativos": 580,
+            "problemas_resolvidos": 35691,
+            "status": "online"
+        },
+        "bldg_225": {
+            "id": "bldg_225",
+            "nome": "Prédio Arte 25",
+            "bairro": "Arte",
+            "cor": "#BE185D",
+            "cor_claro": "#BE185D44",
+            "posicao": {
+                "x": 1738,
+                "y": 1401
+            },
+            "andares": 34,
+            "nivel": 3,
+            "especialidades": [
+                "Teatro",
+                "Música",
+                "Literatura"
+            ],
+            "agentes_ativos": 1353,
+            "problemas_resolvidos": 31978,
+            "status": "online"
+        },
+        "bldg_226": {
+            "id": "bldg_226",
+            "nome": "Prédio Ciência 1",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1958,
+                "y": 531
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Biologia",
+                "Genética",
+                "Física"
+            ],
+            "agentes_ativos": 157,
+            "problemas_resolvidos": 4388,
+            "status": "online"
+        },
+        "bldg_227": {
+            "id": "bldg_227",
+            "nome": "Prédio Ciência 2",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1768,
+                "y": 280
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Biologia",
+                "Física",
+                "Astronomia"
+            ],
+            "agentes_ativos": 1443,
+            "problemas_resolvidos": 46755,
+            "status": "online"
+        },
+        "bldg_228": {
+            "id": "bldg_228",
+            "nome": "Prédio Ciência 3",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1807,
+                "y": 252
+            },
+            "andares": 29,
+            "nivel": 2,
+            "especialidades": [
+                "Genética",
+                "Matemática Aplicada",
+                "Biologia"
+            ],
+            "agentes_ativos": 608,
+            "problemas_resolvidos": 26707,
+            "status": "online"
+        },
+        "bldg_229": {
+            "id": "bldg_229",
+            "nome": "Prédio Ciência 4",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1742,
+                "y": 433
+            },
+            "andares": 35,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Genética",
+                "Biologia"
+            ],
+            "agentes_ativos": 1516,
+            "problemas_resolvidos": 19515,
+            "status": "online"
+        },
+        "bldg_230": {
+            "id": "bldg_230",
+            "nome": "Prédio Ciência 5",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1889,
+                "y": 447
+            },
+            "andares": 12,
+            "nivel": 1,
+            "especialidades": [
+                "Astronomia",
+                "Física",
+                "Genética"
+            ],
+            "agentes_ativos": 1404,
+            "problemas_resolvidos": 13550,
+            "status": "online"
+        },
+        "bldg_231": {
+            "id": "bldg_231",
+            "nome": "Prédio Ciência 6",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1697,
+                "y": 536
+            },
+            "andares": 35,
+            "nivel": 3,
+            "especialidades": [
+                "Física",
+                "Química",
+                "Biologia"
+            ],
+            "agentes_ativos": 651,
+            "problemas_resolvidos": 3640,
+            "status": "online"
+        },
+        "bldg_232": {
+            "id": "bldg_232",
+            "nome": "Prédio Ciência 7",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1658,
+                "y": 518
+            },
+            "andares": 23,
+            "nivel": 2,
+            "especialidades": [
+                "Química",
+                "Genética",
+                "Biologia"
+            ],
+            "agentes_ativos": 1253,
+            "problemas_resolvidos": 46121,
+            "status": "online"
+        },
+        "bldg_233": {
+            "id": "bldg_233",
+            "nome": "Prédio Ciência 8",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1656,
+                "y": 465
+            },
+            "andares": 44,
+            "nivel": 3,
+            "especialidades": [
+                "Biologia",
+                "Astronomia",
+                "Física"
+            ],
+            "agentes_ativos": 278,
+            "problemas_resolvidos": 6100,
+            "status": "online"
+        },
+        "bldg_234": {
+            "id": "bldg_234",
+            "nome": "Prédio Ciência 9",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1915,
+                "y": 266
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Física",
+                "Genética"
+            ],
+            "agentes_ativos": 585,
+            "problemas_resolvidos": 14932,
+            "status": "online"
+        },
+        "bldg_235": {
+            "id": "bldg_235",
+            "nome": "Prédio Ciência 10",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1905,
+                "y": 471
+            },
+            "andares": 27,
+            "nivel": 2,
+            "especialidades": [
+                "Astronomia",
+                "Genética",
+                "Matemática Aplicada"
+            ],
+            "agentes_ativos": 1967,
+            "problemas_resolvidos": 38272,
+            "status": "online"
+        },
+        "bldg_236": {
+            "id": "bldg_236",
+            "nome": "Prédio Ciência 11",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1884,
+                "y": 314
+            },
+            "andares": 40,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Astronomia",
+                "Biologia"
+            ],
+            "agentes_ativos": 1572,
+            "problemas_resolvidos": 49489,
+            "status": "online"
+        },
+        "bldg_237": {
+            "id": "bldg_237",
+            "nome": "Prédio Ciência 12",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1814,
+                "y": 319
+            },
+            "andares": 8,
+            "nivel": 1,
+            "especialidades": [
+                "Química",
+                "Matemática Aplicada",
+                "Física"
+            ],
+            "agentes_ativos": 1555,
+            "problemas_resolvidos": 38533,
+            "status": "online"
+        },
+        "bldg_238": {
+            "id": "bldg_238",
+            "nome": "Prédio Ciência 13",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1738,
+                "y": 557
+            },
+            "andares": 37,
+            "nivel": 3,
+            "especialidades": [
+                "Física",
+                "Matemática Aplicada",
+                "Genética"
+            ],
+            "agentes_ativos": 578,
+            "problemas_resolvidos": 27010,
+            "status": "online"
+        },
+        "bldg_239": {
+            "id": "bldg_239",
+            "nome": "Prédio Ciência 14",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1921,
+                "y": 550
+            },
+            "andares": 47,
+            "nivel": 3,
+            "especialidades": [
+                "Astronomia",
+                "Genética",
+                "Biologia"
+            ],
+            "agentes_ativos": 361,
+            "problemas_resolvidos": 40642,
+            "status": "online"
+        },
+        "bldg_240": {
+            "id": "bldg_240",
+            "nome": "Prédio Ciência 15",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1745,
+                "y": 297
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Física",
+                "Astronomia"
+            ],
+            "agentes_ativos": 214,
+            "problemas_resolvidos": 10280,
+            "status": "online"
+        },
+        "bldg_241": {
+            "id": "bldg_241",
+            "nome": "Prédio Ciência 16",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1687,
+                "y": 528
+            },
+            "andares": 15,
+            "nivel": 1,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Química",
+                "Astronomia"
+            ],
+            "agentes_ativos": 1919,
+            "problemas_resolvidos": 35710,
+            "status": "online"
+        },
+        "bldg_242": {
+            "id": "bldg_242",
+            "nome": "Prédio Ciência 17",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1789,
+                "y": 545
+            },
+            "andares": 30,
+            "nivel": 2,
+            "especialidades": [
+                "Astronomia",
+                "Genética",
+                "Biologia"
+            ],
+            "agentes_ativos": 470,
+            "problemas_resolvidos": 3270,
+            "status": "online"
+        },
+        "bldg_243": {
+            "id": "bldg_243",
+            "nome": "Prédio Ciência 18",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1770,
+                "y": 556
+            },
+            "andares": 5,
+            "nivel": 1,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Genética",
+                "Astronomia"
+            ],
+            "agentes_ativos": 1380,
+            "problemas_resolvidos": 28111,
+            "status": "online"
+        },
+        "bldg_244": {
+            "id": "bldg_244",
+            "nome": "Prédio Ciência 19",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1906,
+                "y": 282
+            },
+            "andares": 6,
+            "nivel": 1,
+            "especialidades": [
+                "Biologia",
+                "Astronomia",
+                "Física"
+            ],
+            "agentes_ativos": 199,
+            "problemas_resolvidos": 30927,
+            "status": "online"
+        },
+        "bldg_245": {
+            "id": "bldg_245",
+            "nome": "Prédio Ciência 20",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1882,
+                "y": 502
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Astronomia",
+                "Física"
+            ],
+            "agentes_ativos": 162,
+            "problemas_resolvidos": 48499,
+            "status": "online"
+        },
+        "bldg_246": {
+            "id": "bldg_246",
+            "nome": "Prédio Ciência 21",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1883,
+                "y": 235
+            },
+            "andares": 42,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Genética",
+                "Astronomia"
+            ],
+            "agentes_ativos": 1020,
+            "problemas_resolvidos": 36456,
+            "status": "online"
+        },
+        "bldg_247": {
+            "id": "bldg_247",
+            "nome": "Prédio Ciência 22",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1649,
+                "y": 428
+            },
+            "andares": 49,
+            "nivel": 3,
+            "especialidades": [
+                "Genética",
+                "Matemática Aplicada",
+                "Química"
+            ],
+            "agentes_ativos": 356,
+            "problemas_resolvidos": 18686,
+            "status": "online"
+        },
+        "bldg_248": {
+            "id": "bldg_248",
+            "nome": "Prédio Ciência 23",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1917,
+                "y": 423
+            },
+            "andares": 32,
+            "nivel": 3,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Biologia",
+                "Física"
+            ],
+            "agentes_ativos": 477,
+            "problemas_resolvidos": 29792,
+            "status": "online"
+        },
+        "bldg_249": {
+            "id": "bldg_249",
+            "nome": "Prédio Ciência 24",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1848,
+                "y": 508
+            },
+            "andares": 33,
+            "nivel": 3,
+            "especialidades": [
+                "Astronomia",
+                "Genética",
+                "Química"
+            ],
+            "agentes_ativos": 882,
+            "problemas_resolvidos": 11116,
+            "status": "online"
+        },
+        "bldg_250": {
+            "id": "bldg_250",
+            "nome": "Prédio Ciência 25",
+            "bairro": "Ciência",
+            "cor": "#6D28D9",
+            "cor_claro": "#6D28D944",
+            "posicao": {
+                "x": 1652,
+                "y": 559
+            },
+            "andares": 14,
+            "nivel": 1,
+            "especialidades": [
+                "Matemática Aplicada",
+                "Astronomia",
+                "Química"
+            ],
+            "agentes_ativos": 805,
+            "problemas_resolvidos": 43526,
+            "status": "online"
+        }
+    }
+}

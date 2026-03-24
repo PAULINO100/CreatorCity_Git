@@ -29,7 +29,7 @@ export async function GET() {
           building: {
             create: {
               structure_type: 'skyscraper',
-              district: citizen.district,
+              district_name: citizen.district,
               position_x: Math.floor(Math.random() * 80) + 10,
               position_y: Math.floor(Math.random() * 80) + 10,
             }

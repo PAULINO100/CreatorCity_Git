@@ -7,9 +7,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -32,6 +31,8 @@ model User {
   votes_cast    PeerVote[] @relation("VotesCast")
   votes_received PeerVote[] @relation("VotesReceived")
   badges        UserBadge[]
+  district_claimed Boolean  @default(false)
+  purchases     UserPurchase[]
 
   accounts      Account[]
   sessions      Session[]
@@ -47,13 +48,47 @@ model Building {
   
   structure_type    String
   height            Int      @default(1)
-  district          String
+  district_name     String   @default("tech")
   position_x        Int
   position_y        Int
   last_activity_at  DateTime @default(now())
 
-  @@index([district])
+  district_id       String?
+  district_ref      District? @relation(fields: [district_id], references: [id])
+
+  @@index([district_name])
+  @@index([district_id])
   @@index([position_x, position_y])
+}
+
+model MarketplaceItem {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  category    String   // facade, lighting, garden, effect, signature
+  price_cc    Int
+  rarity      String   // common, rare, epic, legendary
+  preview_url String?
+
+  purchases   UserPurchase[]
+
+  created_at  DateTime @default(now())
+}
+
+model UserPurchase {
+  id             String   @id @default(cuid())
+  user_id        String
+  item_id        String
+  
+  user           User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  item           MarketplaceItem @relation(fields: [item_id], references: [id], onDelete: Cascade)
+  
+  purchased_at   DateTime @default(now())
+  equipped       Boolean  @default(false)
+
+  @@unique([user_id, item_id])
+  @@index([user_id])
+  @@index([item_id])
 }
 
 model PeerVote {
@@ -154,4 +189,31 @@ model UserBadge {
   badge       Badge    @relation(fields: [badge_id], references: [id], onDelete: Cascade)
 
   @@unique([user_id, badge_id])
+}
+
+model District {
+  id                String      @id @default(cuid())
+  name              String      @unique
+  description       String
+  theme_color       String
+  min_score         Int         @default(0)
+  bonus_multiplier  Float       @default(1.0)
+  icon_svg          String
+  buildings         Building[]
+  created_at        DateTime    @default(now())
+  updated_at        DateTime    @updatedAt
+}
+
+model CitySnapshot {
+  id          String   @id @default(cuid())
+  timestamp   DateTime @default(now())
+  version     String
+  label       String?  // For checkpoints
+
+  buildings   String   @default("[]") // JSON string for SQLite
+  economy     String   @default("{}") // JSON string for SQLite
+  metadata    String   @default("{}") // JSON string for SQLite
+
+  @@index([timestamp])
+  @@index([version])
 }
