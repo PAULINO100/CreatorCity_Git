@@ -8,6 +8,7 @@ import AgentChat from "@/components/AgentChat";
 import MacroNavigationHeader from "@/components/MacroNavigationHeader";
 import HeroSection from "@/components/HeroSection";
 import { MACRO_VIEW_BUILDINGS } from "@/lib/constants";
+import { findSearchMatch, normalizeTerm } from "@/lib/search/district-search-mapping";
 
 interface Building {
   id: string;
@@ -33,30 +34,58 @@ export default function Home() {
     camera: { x: 0, y: 0, zoom: 0.5 }
   });
 
+  const [cityData, setCityData] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchHighlightId, setSearchHighlightId] = useState<string | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatInitialQuery, setChatInitialQuery] = useState("");
+
+  useEffect(() => {
+    fetch("/atlas_city_buildings.json")
+      .then(r => r.json())
+      .then(data => setCityData(data));
+  }, []);
 
   const enterCity = () => setShowHero(false);
 
   const enterNeighborhood = useCallback((neighborhoodId: string) => {
-    // neighborhoodId pode vir como 'macro_saude' ou 'saude'
     const cleanId = neighborhoodId.startsWith('macro_') ? neighborhoodId.replace('macro_', '') : neighborhoodId;
     const macro = MACRO_VIEW_BUILDINGS.find(m => 
       m.id.toLowerCase() === neighborhoodId.toLowerCase() || 
       m.bairro.toLowerCase() === cleanId.toLowerCase()
     );
     if (!macro) return;
-    
+
+    const isMob = typeof window !== "undefined" && window.innerWidth < 768;
+
+    // Centróides REAIS de cada bairro (média das posições dos prédios no JSON).
+    const BAIRRO_CENTERS: Record<string, { x: number; y: number }> = {
+      'Tecnologia':  { x: 415,  y: 366  },
+      'Engenharia':  { x: 1181, y: 420  },
+      'Saúde':       { x: 393,  y: 1190 },
+      'Direito':     { x: 1203, y: 1154 },
+      'Educação':    { x: 792,  y: 794  },
+      'Negócios':    { x: 1602, y: 796  },
+      'Construção':  { x: 407,  y: 1813 },
+      'Agro':        { x: 1182, y: 1802 },
+      'Arte':        { x: 1790, y: 1392 },
+      'Ciência':     { x: 1803, y: 432  },
+    };
+
+    const center = BAIRRO_CENTERS[macro.bairro] ?? { x: macro.posicao.x, y: macro.posicao.y };
+    const zoom = isMob ? 0.55 : 0.65;
+
+    // Fórmula correta: a câmera é aplicada ANTES do scale(zoom), então deve-se multiplicar pelo zoom.
+    // ctx.translate(W/2 + cam.x*dpr) → ctx.scale(zoom*dpr) → ctx.translate(-1000,-800)
+    // Para centralizar mundo ponto (cx, cy): cam.x = -(cx - 1000) * zoom, idem Y.
+    const camX = -(center.x - 1000) * zoom;
+    const camY = -(center.y - 800) * zoom + (isMob ? -150 : 0);
+
     setViewState({
       mode: 'NEIGHBORHOOD',
       activeNeighborhood: macro.bairro,
       selectedBuilding: null,
-      camera: { 
-        x: -(macro.posicao.x - 1000), 
-        y: -(macro.posicao.y - 800), 
-        zoom: 0.9 
-      }
+      camera: { x: camX, y: camY, zoom }
     });
   }, []);
 
@@ -75,9 +104,11 @@ export default function Home() {
       activeNeighborhood: null,
       selectedBuilding: null,
       camera: { 
-        x: 0, 
-        y: isMob ? 60 : (window.innerHeight * 0.05) + 60, 
-        zoom: isMob ? 0.4 : 0.5 
+        // Centro do novo layout compacto (bairros entre x:700-1550, y:650-1550)
+        // Centro worldX≈1125, worldY≈1100 → offset = -(worldX - 1000) = -125, -(worldY - 800) = -300
+        x: isMob ? -80 : -100, 
+        y: isMob ? -120 : -200, 
+        zoom: isMob ? 0.28 : 0.42
       }
     });
   }, []);
@@ -94,6 +125,87 @@ export default function Home() {
     setChatInitialQuery(query);
     setIsChatOpen(true);
   };
+
+  // ─── Phase 21G-SMARTSEARCH: Upgraded Search Handler ───────────────────────
+  useEffect(() => {
+    if (!searchTerm || !cityData) return;
+    
+    const handler = setTimeout(() => {
+      const term = normalizeTerm(searchTerm);
+      if (term.length < 3) return;
+
+      // STEP 1 — Direct neighborhood name match (highest priority)
+      const nMatch = MACRO_VIEW_BUILDINGS.find(m =>
+        normalizeTerm(m.nome) === term ||
+        normalizeTerm(m.bairro) === term ||
+        normalizeTerm(m.id.replace('macro_', '')) === term
+      );
+      if (nMatch) {
+        enterNeighborhood(nMatch.id);
+        setSearchTerm("");
+        setSearchHighlightId(null);
+        return;
+      }
+
+      // STEP 2 — Smart mapping match (synonyms + priority)
+      const mapping = findSearchMatch(searchTerm);
+      if (mapping) {
+        const buildings = Object.values(cityData.predios) as any[];
+        let targetBuilding: any = null;
+
+        // Try specific specialty match within target district first
+        if (mapping.targetSpecialty) {
+          const specNorm = normalizeTerm(mapping.targetSpecialty);
+          targetBuilding = buildings.find(b =>
+            normalizeTerm(b.bairro) === normalizeTerm(mapping.targetDistrict) &&
+            b.especialidades.some((e: string) => normalizeTerm(e).includes(specNorm))
+          );
+        }
+
+        // Try any building in the target district if no specialty match
+        if (!targetBuilding) {
+          targetBuilding = buildings.find(b =>
+            normalizeTerm(b.bairro) === normalizeTerm(mapping.targetDistrict)
+          );
+        }
+
+        // Navigate to target district
+        const currentDistrict = normalizeTerm(viewState.activeNeighborhood ?? '');
+        const targetDistrict = normalizeTerm(mapping.targetDistrict);
+        if (currentDistrict !== targetDistrict) {
+          enterNeighborhood(mapping.targetDistrict);
+        }
+
+        // After navigation delay, select the building to trigger glow + card
+        if (targetBuilding) {
+          const delay = currentDistrict !== targetDistrict ? 600 : 0;
+          setTimeout(() => {
+            setSearchHighlightId(targetBuilding.id);
+            viewBuildingDetails(targetBuilding);
+          }, delay);
+        }
+        return;
+      }
+
+      // STEP 3 — Fallback: direct building name / specialty scan
+      const buildings = Object.values(cityData.predios) as any[];
+      const bMatch = buildings.find(b =>
+        normalizeTerm(b.nome).includes(term) ||
+        b.especialidades.some((e: string) => normalizeTerm(e).includes(term))
+      );
+      if (bMatch) {
+        if (normalizeTerm(viewState.activeNeighborhood ?? '') !== normalizeTerm(bMatch.bairro)) {
+          enterNeighborhood(bMatch.bairro);
+        }
+        setTimeout(() => {
+          setSearchHighlightId(bMatch.id);
+          viewBuildingDetails(bMatch);
+        }, 500);
+      }
+    }, 600);  // 600ms debounce (faster than before)
+
+    return () => clearTimeout(handler);
+  }, [searchTerm, cityData, viewState.activeNeighborhood, enterNeighborhood, viewBuildingDetails]);
 
   if (showHero) {
     return <HeroSection onEnterCity={enterCity} />;
@@ -112,6 +224,7 @@ export default function Home() {
         onBuildingSelect={viewBuildingDetails}
         searchTerm={searchTerm}
         activeNeighborhood={viewState.activeNeighborhood}
+        cityData={cityData}
       />
 
       {/* Header e Navegação */}

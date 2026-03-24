@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef, useState, useCallback } from "react";
-import { NEIGHBORHOOD_CLUSTERS, NeighborhoodCluster, MACRO_VIEW_BUILDINGS, MacroBuilding } from "@/lib/constants";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { MACRO_VIEW_BUILDINGS } from "@/lib/constants";
 
 export type ViewMode = 'MACRO' | 'NEIGHBORHOOD' | 'BUILDING_DETAIL';
 
@@ -24,6 +24,10 @@ interface Building {
   agentes_ativos: number;
   problemas_resolvidos: number;
   status: string;
+}
+
+interface RenderedBuilding extends Building {
+  renderPos: { x: number; y: number };
 }
 
 interface CityData {
@@ -51,6 +55,7 @@ interface CityMapProps {
   onBuildingSelect: (building: Building | null) => void;
   searchTerm: string;
   activeNeighborhood: string | null;
+  cityData: CityData | null;
 }
 
 export default function CityMap({
@@ -58,48 +63,71 @@ export default function CityMap({
   onViewStateChange,
   onEnterNeighborhood,
   onViewBuildingDetails,
-  onBackToMacro,
-  onBackToNeighborhood,
   onBuildingSelect,
   searchTerm,
-  activeNeighborhood
+  activeNeighborhood,
+  cityData
 }: CityMapProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [cityData, setCityData] = useState<CityData | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const isDragging = useRef(false);
   const lastMouse = useRef({ x: 0, y: 0 });
   const animFrame = useRef<number>(0);
   const tick = useRef(0);
+  const initialPinchDistance = useRef<number | null>(null);
+  const initialPinchZoom = useRef<number>(1);
 
-  // Carregar dados
+  // 1. Zoom inicial Macro (apenas na primeira carga se não hover cityData ainda)
   useEffect(() => {
-    fetch("/atlas_city_buildings.json")
-      .then(r => r.json())
-      .then(data => {
-        setCityData(data);
-        const isMob = typeof window !== "undefined" && window.innerWidth < 768;
-        const autoZoom = isMob
-          ? Math.min(window.innerWidth / 1000, window.innerHeight / 1200) * 1.5
-          : Math.min(window.innerWidth / 2200, window.innerHeight / 1900) * 0.85;
+    if (!cityData) return;
+    const isMob = typeof window !== "undefined" && window.innerWidth < 768;
+    const autoZoom = isMob
+      ? Math.min(window.innerWidth / 1000, window.innerHeight / 1200) * 1.5
+      : Math.min(window.innerWidth / 2200, window.innerHeight / 1900) * 0.85;
 
-        onViewStateChange(prev => ({
-          ...prev,
-          camera: { x: 0, y: isMob ? 60 : (window.innerHeight * 0.05) + 60, zoom: autoZoom }
-        }));
-      });
-  }, [onViewStateChange]);
+    onViewStateChange(prev => ({
+      ...prev,
+      camera: { ...prev.camera, zoom: prev.camera.zoom || autoZoom }
+    }));
+  }, [cityData, onViewStateChange]);
 
-  const isBuildingVisible = useCallback((b: Building) => {
-    if (activeNeighborhood && b.bairro !== activeNeighborhood) return false;
+  // 2. Processar prédios com ordenação e dispersão inteligente
+  const processedBuildings = useMemo<RenderedBuilding[]>(() => {
+    if (!cityData) return [];
+    
+    let filtered = Object.values(cityData.predios).filter(p => {
+      if (activeNeighborhood) {
+        return p.bairro.toLowerCase() === activeNeighborhood.toLowerCase();
+      }
+      return true;
+    });
+
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
-      return b.nome.toLowerCase().includes(term) || b.especialidades.some(e => e.toLowerCase().includes(term));
+      filtered = filtered.filter(b => 
+        b.nome.toLowerCase().includes(term) || 
+        b.especialidades.some(e => e.toLowerCase().includes(term))
+      );
     }
-    return true;
-  }, [activeNeighborhood, searchTerm]);
 
-  // Ajustar tamanho do canvas e resolução (DPR)
+    const sorted = [...filtered].sort((a, b) => a.posicao.y - b.posicao.y);
+
+    return sorted.map((b: Building) => {
+      const seed = parseInt(b.id.replace(/\D/g, '') || "0");
+      const offsetX = ((seed % 11) - 5) * 2; 
+      const offsetY = ((seed % 7) - 3) * 2;
+      
+      return {
+        ...b,
+        renderPos: {
+          x: b.posicao.x + offsetX,
+          y: b.posicao.y + offsetY
+        }
+      };
+    });
+  }, [cityData, activeNeighborhood, searchTerm]);
+
+  // 3. Ajustar tamanho do canvas
   useEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -108,7 +136,6 @@ export default function CityMap({
       const dpr = window.devicePixelRatio || 1;
       const displayWidth = canvas.clientWidth;
       const displayHeight = canvas.clientHeight;
-
       if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
         canvas.width = displayWidth * dpr;
         canvas.height = displayHeight * dpr;
@@ -118,10 +145,10 @@ export default function CityMap({
     const resizeObserver = new ResizeObserver(updateSize);
     resizeObserver.observe(canvas);
     updateSize();
-
     return () => resizeObserver.disconnect();
   }, []);
 
+  // 4. Loop de renderização
   useEffect(() => {
     if (!cityData || !canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -129,17 +156,15 @@ export default function CityMap({
     if (!ctx) return;
 
     function draw() {
-      if (!cityData || !ctx || !canvasRef.current) return;
-      const canvas = canvasRef.current;
-      const W = canvas.width;
-      const H = canvas.height;
+      if (!ctx || !canvasRef.current || !cityData) return;
+      const W = canvasRef.current.width;
+      const H = canvasRef.current.height;
       const dpr = window.devicePixelRatio || 1;
 
       tick.current++;
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, W, H);
       
-      // Fundo Noturno com Degradê Rico
       const bg = ctx.createLinearGradient(0, 0, 0, H);
       bg.addColorStop(0, "#060E1A");
       bg.addColorStop(0.5, "#0A1628");
@@ -147,37 +172,22 @@ export default function CityMap({
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, W, H);
 
-      // Grade de Fundo (Sync com HeroSection)
       ctx.save();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.translate(viewState.camera.x % 40, viewState.camera.y % 40);
       ctx.beginPath();
       ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
       ctx.lineWidth = 1;
-      for (let x = -40; x < canvas.clientWidth + 40; x += 40) {
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.clientHeight);
+      for (let x = -40; x < canvasRef.current.clientWidth + 40; x += 40) {
+        ctx.moveTo(x, 0); ctx.lineTo(x, canvasRef.current.clientHeight);
       }
-      for (let y = -40; y < canvas.clientHeight + 40; y += 40) {
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.clientWidth, y);
+      for (let y = -40; y < canvasRef.current.clientHeight + 40; y += 40) {
+        ctx.moveTo(0, y); ctx.lineTo(canvasRef.current.clientWidth, y);
       }
       ctx.stroke();
       ctx.restore();
 
-      // Estrelas Cintilantes
-      for (let i = 0; i < 20; i++) {
-        const sx = (Math.sin(tick.current * 0.01 + i) * 0.5 + 0.5) * W;
-        const sy = (Math.cos(tick.current * 0.01 + i * 2) * 0.5 + 0.5) * H * 0.5;
-        const alpha = Math.sin(tick.current * 0.05 + i) * 0.3 + 0.4;
-        ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-        ctx.beginPath();
-        ctx.arc(sx, sy, 0.6, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
       ctx.save();
-      // Centralizar e Aplicar Câmera
       ctx.translate(W / 2 + viewState.camera.x * dpr, H / 2 + viewState.camera.y * dpr);
       ctx.scale(viewState.camera.zoom * dpr, viewState.camera.zoom * dpr);
       
@@ -186,95 +196,61 @@ export default function CityMap({
         MACRO_VIEW_BUILDINGS.forEach(macro => {
           const cx = macro.posicao.x;
           const cy = macro.posicao.y;
-          const size = 180;
+          const size = 320; // Aumentado (~78% acima do original 180)
           const isHovered = hovered === `macro_${macro.id}`;
-          
           ctx.save();
-          // Halo de brilho
           if (isHovered) {
-            const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size);
+            const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 1.2);
             glow.addColorStop(0, macro.cor_hex + '33');
             glow.addColorStop(1, 'transparent');
             ctx.fillStyle = glow;
-            ctx.beginPath();
-            ctx.arc(cx, cy, size, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.beginPath(); ctx.arc(cx, cy, size * 1.2, 0, Math.PI * 2); ctx.fill();
           }
-
           ctx.beginPath();
-          ctx.arc(cx, cy, size/2 + (isHovered ? 30 : 20), 0, Math.PI * 2);
-          ctx.strokeStyle = macro.cor_hex + (isHovered ? '99' : '44');
-          ctx.lineWidth = isHovered ? 6 : 4;
+          ctx.arc(cx, cy, size/2 + (isHovered ? 40 : 28), 0, Math.PI * 2);
+          ctx.strokeStyle = macro.cor_hex + (isHovered ? 'BB' : '55');
+          ctx.lineWidth = isHovered ? 7 : 5;
           ctx.stroke();
 
-          // Prédio Macro (Bloco Premium)
           const grad = ctx.createLinearGradient(cx - size/4, cy - size/2, cx - size/4, cy + size/2);
           grad.addColorStop(0, macro.cor_hex);
           grad.addColorStop(1, "#0f172a");
           ctx.fillStyle = grad;
           ctx.fillRect(cx - size/4, cy - size/2, size/2, size);
           
-          // Janelas no Macro
           ctx.fillStyle = "rgba(255,255,255,0.4)";
-          for(let row=0; row<8; row++) {
-            for(let col=0; col<3; col++) {
-              if ((row+col+tick.current/20)%5 > 1) {
-                ctx.fillRect(cx - size/4 + 10 + col*12, cy - size/2 + 15 + row*18, 6, 4);
-              }
+          for(let r=0; r<10; r++) {
+            for(let c=0; c<3; c++) {
+              if ((r+c+tick.current/20)%5 > 1) ctx.fillRect(cx - size/4 + 12 + c*14, cy - size/2 + 16 + r*22, 7, 5);
             }
           }
-
-          ctx.font = "60px sans-serif";
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(macro.icone, cx, cy - 20);
-          
-          ctx.fillStyle = '#fff';
-          ctx.font = "bold 22px sans-serif";
-          ctx.fillText(macro.nome, cx, cy + 50);
-          
-          ctx.fillStyle = '#94A3B8';
-          ctx.font = "14px sans-serif";
-          ctx.fillText(`${macro.totalPredios} prédios`, cx, cy + 75);
+          ctx.font = "80px sans-serif"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillText(macro.icone, cx, cy - 28);
+          ctx.fillStyle = '#fff'; ctx.font = "bold 28px sans-serif"; ctx.fillText(macro.nome, cx, cy + 70);
+          ctx.fillStyle = '#94A3B8'; ctx.font = "18px sans-serif"; ctx.fillText(`${macro.totalPredios} prédios`, cx, cy + 102);
           ctx.restore();
         });
       } else {
         ctx.translate(-1000, -800);
-        // Renderizar prédios do bairro
-        const filtered = Object.values(cityData.predios).filter(p => {
-          if (viewState.activeNeighborhood) {
-            const b = viewState.activeNeighborhood.toLowerCase();
-            return p.bairro.toLowerCase() === b;
-          }
-          return true;
-        });
-
-        filtered.forEach(b => {
-          if (!isBuildingVisible(b)) return;
+        processedBuildings.forEach((b: RenderedBuilding) => {
           const isHovered = hovered === b.id;
           const isSelected = viewState.selectedBuilding?.id === b.id;
-          const bx = b.posicao.x;
-          const by = b.posicao.y;
+          const bx = b.renderPos.x;
+          const by = b.renderPos.y;
           const largura = 22 + b.nivel * 6;
           const alturaBase = b.andares * 12 + 40;
 
-          // Desenho do Prédio Premium
           ctx.save();
-          
-          // Sombra/Brilho
           if (isHovered || isSelected) {
             ctx.shadowBlur = 20;
             ctx.shadowColor = isSelected ? "#fff" : b.cor;
           }
-
-          // Corpo Principal com Degradê
           const bGrad = ctx.createLinearGradient(bx, by - alturaBase, bx, by);
           bGrad.addColorStop(0, isSelected ? "#fff" : b.cor);
           bGrad.addColorStop(1, "#0f172a");
           ctx.fillStyle = bGrad;
           ctx.fillRect(bx - largura / 2, by - alturaBase, largura, alturaBase);
           
-          // Textura/Hatching (Linhas diagonais sutis)
           ctx.strokeStyle = "rgba(255,255,255,0.05)";
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -284,81 +260,53 @@ export default function CityMap({
           }
           ctx.stroke();
 
-          // Janelas (Pontos brancos)
           const cols = Math.floor(largura / 8);
           const rows = Math.floor(alturaBase / 10);
           ctx.fillStyle = "rgba(255,255,255,0.7)";
           for(let r=0; r<rows; r++) {
             for(let c=0; c<cols; c++) {
-              // Algumas janelas apagadas aleatoriamente baseadas no ID do prédio
               const seed = parseInt(b.id.replace(/\D/g, '') || "0") + r + c;
-              if (seed % 7 > 1) {
-                ctx.fillRect(bx - largura/2 + 4 + c*8, by - alturaBase + 5 + r*10, 3, 2);
-              }
+              if (seed % 7 > 1) ctx.fillRect(bx - largura/2 + 4 + c*8, by - alturaBase + 5 + r*10, 3, 2);
             }
           }
-
-          // Antena
           if (b.nivel > 2) {
-            ctx.strokeStyle = isSelected ? "#fff" : b.cor;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(bx, by - alturaBase);
-            ctx.lineTo(bx, by - alturaBase - 15);
-            ctx.stroke();
-            
-            // Luz da Antena (pisca)
+            ctx.strokeStyle = isSelected ? "#fff" : b.cor; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(bx, by - alturaBase); ctx.lineTo(bx, by - alturaBase - 15); ctx.stroke();
             if (tick.current % 60 < 30) {
-              ctx.fillStyle = "#ff4444";
-              ctx.beginPath();
-              ctx.arc(bx, by - alturaBase - 15, 2, 0, Math.PI * 2);
-              ctx.fill();
+              ctx.fillStyle = "#ff4444"; ctx.beginPath(); ctx.arc(bx, by - alturaBase - 15, 2, 0, Math.PI * 2); ctx.fill();
             }
           }
-
           ctx.restore();
-
-          // Etiqueta
           if (viewState.camera.zoom > 0.7 || isHovered || isSelected) {
-            ctx.fillStyle = "#fff";
-            ctx.font = "bold 10px sans-serif";
-            ctx.textAlign = "center";
+            ctx.fillStyle = "#fff"; ctx.font = "bold 10px sans-serif"; ctx.textAlign = "center";
             ctx.fillText(b.nome, bx, by - alturaBase - 10);
           }
         });
 
-        // Nome do bairro (Fundo)
         if (viewState.activeNeighborhood) {
-          const bairroData = cityData.bairros[viewState.activeNeighborhood];
-          if (bairroData) {
-            ctx.save();
-            ctx.globalAlpha = 0.2;
-            ctx.fillStyle = bairroData.cor;
-            ctx.font = "bold 120px sans-serif";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillText(viewState.activeNeighborhood.toUpperCase(), bairroData.centro.x, bairroData.centro.y);
+          const bd = cityData.bairros[viewState.activeNeighborhood];
+          if (bd) {
+            ctx.save(); ctx.globalAlpha = 0.2; ctx.fillStyle = bd.cor; ctx.font = "bold 120px sans-serif";
+            ctx.textAlign = "center"; ctx.textBaseline = "middle";
+            ctx.fillText(viewState.activeNeighborhood.toUpperCase(), bd.centro.x, bd.centro.y);
             ctx.restore();
           }
         }
       }
       ctx.restore();
 
-      // HUD de Zoom
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.fillStyle = "rgba(148, 163, 184, 0.5)";
       ctx.font = "10px monospace";
       ctx.fillText(
         `${viewState.mode === 'MACRO' ? 'GLOBAL VIEW' : viewState.activeNeighborhood?.toUpperCase()} // ZOOM: ${Math.round(viewState.camera.zoom * 100)}%`,
-        24, canvas.height / dpr - 24
+        24, canvasRef.current!.height / dpr - 24
       );
-
       animFrame.current = requestAnimationFrame(draw);
     }
-
     draw();
     return () => cancelAnimationFrame(animFrame.current);
-  }, [cityData, hovered, isBuildingVisible, activeNeighborhood, viewState, viewState.camera, viewState.mode]);
+  }, [cityData, hovered, activeNeighborhood, viewState, viewState.camera, viewState.mode, processedBuildings]);
 
   const getCanvasCoords = useCallback((clientX: number, clientY: number) => {
     if (!canvasRef.current) return { x: 0, y: 0 };
@@ -367,24 +315,23 @@ export default function CityMap({
   }, []);
 
   const getBuildingAt = useCallback((cx: number, cy: number) => {
-    if (!cityData || !canvasRef.current) return null;
+    if (!canvasRef.current) return null;
     const W = canvasRef.current.offsetWidth;
     const H = canvasRef.current.offsetHeight;
     const zoom = viewState.camera.zoom;
     const worldX = (cx - W / 2 - viewState.camera.x) / zoom + 1000;
     const worldY = (cy - H / 2 - viewState.camera.y) / zoom + 800;
 
-    const buildings = Object.values(cityData.predios).filter(p => p.bairro.toLowerCase() === activeNeighborhood?.toLowerCase());
-    for (let i = buildings.length - 1; i >= 0; i--) {
-      const b = buildings[i];
+    for (let i = processedBuildings.length - 1; i >= 0; i--) {
+      const b = processedBuildings[i];
       const largura = 24 + b.nivel * 8;
-      const alturaBase = b.andares * 14;
-      const px = b.posicao.x - largura / 2;
-      const py = b.posicao.y - alturaBase;
-      if (worldX >= px - 10 && worldX <= px + largura + 10 && worldY >= py - 10 && worldY <= py + alturaBase + 10) return b;
+      const alturaBase = b.andares * 14 + 40;
+      const px = b.renderPos.x - largura / 2;
+      const py = b.renderPos.y - alturaBase;
+      if (worldX >= px - 5 && worldX <= px + largura + 5 && worldY >= py - 15 && worldY <= b.renderPos.y + 5) return b;
     }
     return null;
-  }, [cityData, viewState.camera, viewState.camera.x, viewState.camera.y, viewState.camera.zoom, activeNeighborhood]);
+  }, [viewState.camera, processedBuildings]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const { x: cx, y: cy } = getCanvasCoords(e.clientX, e.clientY);
@@ -400,17 +347,18 @@ export default function CityMap({
     }
 
     if (viewState.mode === 'MACRO') {
-      const W = canvasRef.current!.offsetWidth;
-      const H = canvasRef.current!.offsetHeight;
+      if (!canvasRef.current) return;
+      const W = canvasRef.current.offsetWidth;
+      const H = canvasRef.current.offsetHeight;
       const zoom = viewState.camera.zoom;
       const worldX = (cx - W / 2 - viewState.camera.x) / zoom + 1000;
       const worldY = (cy - H / 2 - viewState.camera.y) / zoom + 800;
       let f = null;
       MACRO_VIEW_BUILDINGS.forEach(m => {
-        if (Math.hypot(worldX - m.posicao.x, worldY - m.posicao.y) < 90) f = `macro_${m.id}`;
+        if (Math.hypot(worldX - m.posicao.x, worldY - m.posicao.y) < 117) f = `macro_${m.id}`;
       });
       setHovered(f);
-      if (canvasRef.current) canvasRef.current.style.cursor = f ? "pointer" : "grab";
+      canvasRef.current.style.cursor = f ? "pointer" : "grab";
     } else {
       const b = getBuildingAt(cx, cy);
       setHovered(b?.id ?? null);
@@ -421,13 +369,14 @@ export default function CityMap({
   const handleClick = useCallback((e: React.MouseEvent) => {
     const { x, y } = getCanvasCoords(e.clientX, e.clientY);
     if (viewState.mode === 'MACRO') {
-      const W = canvasRef.current!.offsetWidth;
-      const H = canvasRef.current!.offsetHeight;
+      if (!canvasRef.current) return;
+      const W = canvasRef.current.offsetWidth;
+      const H = canvasRef.current.offsetHeight;
       const zoom = viewState.camera.zoom;
       const worldX = (x - W / 2 - viewState.camera.x) / zoom + 1000;
       const worldY = (y - H / 2 - viewState.camera.y) / zoom + 800;
       MACRO_VIEW_BUILDINGS.forEach(m => {
-        if (Math.hypot(worldX - m.posicao.x, worldY - m.posicao.y) < 90) onEnterNeighborhood(m.id);
+        if (Math.hypot(worldX - m.posicao.x, worldY - m.posicao.y) < 117) onEnterNeighborhood(m.id);
       });
     } else {
       const b = getBuildingAt(x, y);
@@ -439,7 +388,7 @@ export default function CityMap({
   const handleWheel = useCallback((e: React.WheelEvent) => {
     onViewStateChange(prev => ({
       ...prev,
-      camera: { ...prev.camera, zoom: Math.max(0.25, Math.min(2.5, prev.camera.zoom - e.deltaY * 0.001)) }
+      camera: { ...prev.camera, zoom: Math.max(0.25, Math.min(4.0, prev.camera.zoom - e.deltaY * 0.001)) }
     }));
   }, [onViewStateChange]);
 
@@ -449,11 +398,18 @@ export default function CityMap({
     if (e.touches.length === 1) {
       isDragging.current = true;
       lastTouch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      initialPinchDistance.current = null;
+    } else if (e.touches.length === 2) {
+      isDragging.current = false;
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      initialPinchDistance.current = Math.hypot(dx, dy);
+      initialPinchZoom.current = viewState.camera.zoom;
     }
-  }, []);
+  }, [viewState.camera.zoom]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (isDragging.current && lastTouch.current && e.touches.length === 1) {
+    if (e.touches.length === 1 && isDragging.current && lastTouch.current) {
       const touch = e.touches[0];
       const dx = touch.clientX - lastTouch.current.x;
       const dy = touch.clientY - lastTouch.current.y;
@@ -462,18 +418,31 @@ export default function CityMap({
         camera: { ...prev.camera, x: prev.camera.x + dx, y: prev.camera.y + dy }
       }));
       lastTouch.current = { x: touch.clientX, y: touch.clientY };
+    } else if (e.touches.length === 2 && initialPinchDistance.current !== null) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const currentDistance = Math.hypot(dx, dy);
+      if (currentDistance > 10) {
+        const factor = currentDistance / initialPinchDistance.current;
+        const newZoom = Math.max(0.25, Math.min(4.0, initialPinchZoom.current * factor));
+        onViewStateChange(prev => ({
+          ...prev,
+          camera: { ...prev.camera, zoom: newZoom }
+        }));
+      }
     }
   }, [onViewStateChange]);
 
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     isDragging.current = false;
-    if (e.changedTouches.length === 1 && lastTouch.current) {
-      // Simplificação do clique via toque
+    initialPinchDistance.current = null;
+    if (e.changedTouches.length === 1 && lastTouch.current && !initialPinchDistance.current) {
       const touch = e.changedTouches[0];
       const { x, y } = getCanvasCoords(touch.clientX, touch.clientY);
       if (viewState.mode === 'MACRO') {
-        const W = canvasRef.current!.offsetWidth;
-        const H = canvasRef.current!.offsetHeight;
+        if (!canvasRef.current) return;
+        const W = canvasRef.current.offsetWidth;
+        const H = canvasRef.current.offsetHeight;
         const zoom = viewState.camera.zoom;
         const worldX = (x - W / 2 - viewState.camera.x) / zoom + 1000;
         const worldY = (y - H / 2 - viewState.camera.y) / zoom + 800;
