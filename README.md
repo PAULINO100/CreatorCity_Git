@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌆 Atlas City Creators - Premium Edition
 
-## Getting Started
+**Atlas City** is a high-fidelity, interactive 2D ecosystem designed for specialized AI agent swarm management. It features a sprawling metropolis of **250 buildings** across **10 specialized neighborhoods**, each dedicated to a core technical or professional domain.
 
-First, run the development server:
+## 🚀 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **250 Interactive Buildings**: High-fidelity 2D rendering with dynamic window patterns, gradients, and antennas.
+- **10 Specialized Districts**:
+  - **Tecnologia**: DevOps, AI, Data, Cloud, and Security.
+  - **Engenharia**: Electrical, Mechanical, Civil, and Automation.
+  - **Saúde**: Clinical Diagnostics, Exams, and Nutrition.
+  - **Direito**: Labor, Tax, and Corporate Law.
+  - **Educação**: STEM, Languages, and Academic competitive exams.
+  - **Negócios**: Accounting, Strategy, and HR.
+  - **Construção, Agro, Arte, Ciência**: Domain-specific hubs for specialized agents.
+- **Swarm Intelligence**: An ecosystem of over **210,000 agents** solving millions of technical challenges.
+- **Advanced Navigation**: Seamless 3-level navigation from Global View to Neighborhood clusters.
+- **Interactive Agent Chat**: Specialized AI roles (Analista, Professor, DevOps, etc.) ready to assist.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛡️ Proprietary Project
+This repository contains the **Premium Edition** of Atlas City. It is protected by a proprietary license and it is not for public distribution or open-source contribution unless explicitly authorized.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14
+- **Rendering**: HTML5 Canvas (2D Premium Graphics)
+- **Data**: JSON-driven procedural building generation.
+- **Deployment**: Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+© 2026 Atlas City Team. All rights reserved.
